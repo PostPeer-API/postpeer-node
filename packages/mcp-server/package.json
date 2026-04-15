@@ -8,10 +8,10 @@
   "type": "commonjs",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/stainless-sdks/postpeer-typescript.git",
+    "url": "git+https://github.com/PostPeer-API/postpeer-typescript.git",
     "directory": "packages/mcp-server"
   },
-  "homepage": "https://github.com/stainless-sdks/postpeer-typescript/tree/main/packages/mcp-server#readme",
+  "homepage": "https://github.com/PostPeer-API/postpeer-typescript/tree/main/packages/mcp-server#readme",
   "license": "Apache-2.0",
   "packageManager": "pnpm@10.30.1",
   "private": false,
