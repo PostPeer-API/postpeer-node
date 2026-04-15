@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.1 (2026-04-15)
+
+Full Changelog: [v0.1.0...v0.1.1](https://github.com/PostPeer-API/postpeer-typescript/compare/v0.1.0...v0.1.1)
+
+### Chores
+
+* configure new SDK language ([3ea01db](https://github.com/PostPeer-API/postpeer-typescript/commit/3ea01db9930bbcbcb20e3216db9d1e75f3ef21c9))
+
 ## 0.1.0 (2026-04-15)
 
 Full Changelog: [v0.0.1...v0.1.0](https://github.com/PostPeer-API/postpeer-typescript/compare/v0.0.1...v0.1.0)
