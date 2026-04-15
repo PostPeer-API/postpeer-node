@@ -20,11 +20,8 @@ Use the Postpeer MCP Server to enable AI assistants to interact with this API, a
 ## Installation
 
 ```sh
-npm install git+ssh://git@github.com:PostPeer-API/postpeer-typescript.git
+npm install postpeer
 ```
-
-> [!NOTE]
-> Once this package is [published to npm](https://www.stainless.com/docs/guides/publish), this will become: `npm install postpeer`
 
 ## Usage
 
