@@ -6,9 +6,9 @@ import * as ScheduledAPI from './scheduled';
 import {
   Scheduled,
   ScheduledCancelResponse,
+  ScheduledListResponse,
   ScheduledRescheduleParams,
   ScheduledRescheduleResponse,
-  ScheduledRetrieveResponse,
 } from './scheduled';
 import { APIPromise } from '../../core/api-promise';
 import { RequestOptions } from '../../internal/request-options';
@@ -16,6 +16,24 @@ import { path } from '../../internal/utils/path';
 
 export class Posts extends APIResource {
   scheduled: ScheduledAPI.Scheduled = new ScheduledAPI.Scheduled(this._client);
+
+  /**
+   * Publish a post to one or more social media platforms
+   *
+   * @example
+   * ```ts
+   * const post = await client.posts.create({
+   *   content: 'Hello world!',
+   *   platforms: [
+   *     { platform: 'twitter', accountId: '<your-account-id>' },
+   *   ],
+   *   publishNow: true,
+   * });
+   * ```
+   */
+  create(body: PostCreateParams, options?: RequestOptions): APIPromise<PostCreateResponse> {
+    return this._client.post('/v1/posts/', { body, ...options });
+  }
 
   /**
    * Get a single post by ID
@@ -30,21 +48,19 @@ export class Posts extends APIResource {
   }
 
   /**
-   * Publish a post to one or more social media platforms
+   * Returns a paginated list of posts. Filter by status, platform (OR logic), and
+   * date ranges. Published posts include platformPostUrl per platform.
    *
    * @example
    * ```ts
-   * const post = await client.posts.update({
-   *   content: 'Hello world!',
-   *   platforms: [
-   *     { platform: 'twitter', accountId: '<your-account-id>' },
-   *   ],
-   *   publishNow: true,
-   * });
+   * const posts = await client.posts.list();
    * ```
    */
-  update(body: PostUpdateParams, options?: RequestOptions): APIPromise<PostUpdateResponse> {
-    return this._client.post('/v1/posts/', { body, ...options });
+  list(
+    query: PostListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<PostListResponse> {
+    return this._client.get('/v1/posts/', { query, ...options });
   }
 
   /**
@@ -57,22 +73,6 @@ export class Posts extends APIResource {
    */
   delete(postID: string, options?: RequestOptions): APIPromise<PostDeleteResponse> {
     return this._client.delete(path`/v1/posts/${postID}`, options);
-  }
-
-  /**
-   * Returns a paginated list of posts. Filter by status, platform (OR logic), and
-   * date ranges. Published posts include platformPostUrl per platform.
-   *
-   * @example
-   * ```ts
-   * const response = await client.posts.retrieve();
-   * ```
-   */
-  retrieve(
-    query: PostRetrieveParams | null | undefined = {},
-    options?: RequestOptions,
-  ): APIPromise<PostRetrieveResponse> {
-    return this._client.get('/v1/posts/', { query, ...options });
   }
 }
 
@@ -139,14 +139,8 @@ export namespace PostSummary {
 
 export type Status = 'draft' | 'pending' | 'scheduled' | 'publishing' | 'published' | 'failed' | 'partial';
 
-export interface PostRetrieveResponse {
-  post: PostSummary;
-
-  success: boolean;
-}
-
-export interface PostUpdateResponse {
-  platforms: Array<PostUpdateResponse.Platform>;
+export interface PostCreateResponse {
+  platforms: Array<PostCreateResponse.Platform>;
 
   /**
    * id of the saved Post document
@@ -166,7 +160,7 @@ export interface PostUpdateResponse {
   scheduledFor?: string;
 }
 
-export namespace PostUpdateResponse {
+export namespace PostCreateResponse {
   export interface Platform {
     platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin';
 
@@ -184,11 +178,13 @@ export namespace PostUpdateResponse {
   }
 }
 
-export interface PostDeleteResponse {
+export interface PostRetrieveResponse {
+  post: PostSummary;
+
   success: boolean;
 }
 
-export interface PostRetrieveResponse {
+export interface PostListResponse {
   posts: Array<PostSummary>;
 
   success: boolean;
@@ -199,7 +195,11 @@ export interface PostRetrieveResponse {
   total: number;
 }
 
-export interface PostUpdateParams {
+export interface PostDeleteResponse {
+  success: boolean;
+}
+
+export interface PostCreateParams {
   /**
    * Post text body
    */
@@ -208,12 +208,12 @@ export interface PostUpdateParams {
   /**
    * Target platform accounts to publish to
    */
-  platforms: Array<PostUpdateParams.Platform>;
+  platforms: Array<PostCreateParams.Platform>;
 
   /**
    * Media attachments (images, videos, GIFs)
    */
-  mediaItems?: Array<PostUpdateParams.MediaItem>;
+  mediaItems?: Array<PostCreateParams.MediaItem>;
 
   /**
    * Publish immediately. Required when scheduledFor is omitted.
@@ -231,7 +231,7 @@ export interface PostUpdateParams {
   timezone?: string;
 }
 
-export namespace PostUpdateParams {
+export namespace PostCreateParams {
   export interface Platform {
     /**
      * Integration.\_id — find yours via GET /connect/integrations
@@ -508,7 +508,7 @@ export namespace PostUpdateParams {
   }
 }
 
-export interface PostRetrieveParams {
+export interface PostListParams {
   /**
    * ISO 8601 lower bound on createdAt
    */
@@ -558,18 +558,19 @@ export declare namespace Posts {
   export {
     type PostSummary as PostSummary,
     type Status as Status,
+    type PostCreateResponse as PostCreateResponse,
     type PostRetrieveResponse as PostRetrieveResponse,
-    type PostUpdateResponse as PostUpdateResponse,
+    type PostListResponse as PostListResponse,
     type PostDeleteResponse as PostDeleteResponse,
-    type PostUpdateParams as PostUpdateParams,
-    type PostRetrieveParams as PostRetrieveParams,
+    type PostCreateParams as PostCreateParams,
+    type PostListParams as PostListParams,
   };
 
   export {
     Scheduled as Scheduled,
+    type ScheduledListResponse as ScheduledListResponse,
     type ScheduledCancelResponse as ScheduledCancelResponse,
     type ScheduledRescheduleResponse as ScheduledRescheduleResponse,
-    type ScheduledRetrieveResponse as ScheduledRetrieveResponse,
     type ScheduledRescheduleParams as ScheduledRescheduleParams,
   };
 }

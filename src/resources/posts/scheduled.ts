@@ -7,6 +7,18 @@ import { path } from '../../internal/utils/path';
 
 export class Scheduled extends APIResource {
   /**
+   * List all scheduled posts
+   *
+   * @example
+   * ```ts
+   * const scheduleds = await client.posts.scheduled.list();
+   * ```
+   */
+  list(options?: RequestOptions): APIPromise<ScheduledListResponse> {
+    return this._client.get('/v1/posts/scheduled/', options);
+  }
+
+  /**
    * Cancel a scheduled post (moves it back to draft)
    *
    * @example
@@ -38,41 +50,15 @@ export class Scheduled extends APIResource {
   ): APIPromise<ScheduledRescheduleResponse> {
     return this._client.patch(path`/v1/posts/scheduled/${postID}`, { body, ...options });
   }
-
-  /**
-   * List all scheduled posts
-   *
-   * @example
-   * ```ts
-   * const response = await client.posts.scheduled.retrieve();
-   * ```
-   */
-  retrieve(options?: RequestOptions): APIPromise<ScheduledRetrieveResponse> {
-    return this._client.get('/v1/posts/scheduled/', options);
-  }
 }
 
-export interface ScheduledCancelResponse {
-  message: string;
+export interface ScheduledListResponse {
+  posts: Array<ScheduledListResponse.Post>;
 
   success: boolean;
 }
 
-export interface ScheduledRescheduleResponse {
-  message: string;
-
-  scheduledFor: string;
-
-  success: boolean;
-}
-
-export interface ScheduledRetrieveResponse {
-  posts: Array<ScheduledRetrieveResponse.Post>;
-
-  success: boolean;
-}
-
-export namespace ScheduledRetrieveResponse {
+export namespace ScheduledListResponse {
   export interface Post {
     /**
      * Post text body
@@ -131,6 +117,20 @@ export namespace ScheduledRetrieveResponse {
   }
 }
 
+export interface ScheduledCancelResponse {
+  message: string;
+
+  success: boolean;
+}
+
+export interface ScheduledRescheduleResponse {
+  message: string;
+
+  scheduledFor: string;
+
+  success: boolean;
+}
+
 export interface ScheduledRescheduleParams {
   /**
    * New ISO 8601 datetime to schedule the post
@@ -145,9 +145,9 @@ export interface ScheduledRescheduleParams {
 
 export declare namespace Scheduled {
   export {
+    type ScheduledListResponse as ScheduledListResponse,
     type ScheduledCancelResponse as ScheduledCancelResponse,
     type ScheduledRescheduleResponse as ScheduledRescheduleResponse,
-    type ScheduledRetrieveResponse as ScheduledRetrieveResponse,
     type ScheduledRescheduleParams as ScheduledRescheduleParams,
   };
 }

@@ -4,16 +4,17 @@ export {
   Posts,
   type PostSummary,
   type Status,
+  type PostCreateResponse,
   type PostRetrieveResponse,
-  type PostUpdateResponse,
+  type PostListResponse,
   type PostDeleteResponse,
-  type PostUpdateParams,
-  type PostRetrieveParams,
+  type PostCreateParams,
+  type PostListParams,
 } from './posts';
 export {
   Scheduled,
+  type ScheduledListResponse,
   type ScheduledCancelResponse,
   type ScheduledRescheduleResponse,
-  type ScheduledRetrieveResponse,
   type ScheduledRescheduleParams,
 } from './scheduled';

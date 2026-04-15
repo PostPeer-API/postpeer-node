@@ -22,12 +22,13 @@ import { Media, MediaUploadParams, MediaUploadResponse } from './resources/media
 import { PlatformListResponse, Platforms } from './resources/platforms';
 import { Connect, ConnectGetOAuthURLParams, ConnectGetOAuthURLResponse } from './resources/connect/connect';
 import {
+  PostCreateParams,
+  PostCreateResponse,
   PostDeleteResponse,
-  PostRetrieveParams,
+  PostListParams,
+  PostListResponse,
   PostRetrieveResponse,
   PostSummary,
-  PostUpdateParams,
-  PostUpdateResponse,
   Posts,
   Status,
 } from './resources/posts/posts';
@@ -762,11 +763,12 @@ export declare namespace Postpeer {
     Posts as Posts,
     type PostSummary as PostSummary,
     type Status as Status,
+    type PostCreateResponse as PostCreateResponse,
     type PostRetrieveResponse as PostRetrieveResponse,
-    type PostUpdateResponse as PostUpdateResponse,
+    type PostListResponse as PostListResponse,
     type PostDeleteResponse as PostDeleteResponse,
-    type PostUpdateParams as PostUpdateParams,
-    type PostRetrieveParams as PostRetrieveParams,
+    type PostCreateParams as PostCreateParams,
+    type PostListParams as PostListParams,
   };
 
   export {
