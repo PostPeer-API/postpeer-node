@@ -2,7 +2,7 @@
 
 [![NPM version](<https://img.shields.io/npm/v/@postpeer/typescript.svg?label=npm%20(stable)>)](https://npmjs.org/package/@postpeer/typescript) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@postpeer/typescript)
 
-This library provides convenient access to the Post Peer REST API from server-side TypeScript or JavaScript.
+This library provides convenient access to the PostPeer REST API from server-side TypeScript or JavaScript.
 
 The full API of this library can be found in [api.md](api.md).
 
