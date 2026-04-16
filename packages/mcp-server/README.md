@@ -23,7 +23,7 @@ For clients with a configuration JSON, it might look something like this:
 ```json
 {
   "mcpServers": {
-    "postpeer_api": {
+    "postpeer_typescript_api": {
       "command": "npx",
       "args": ["-y", "postpeer-mcp"],
       "env": {
@@ -88,7 +88,7 @@ A configuration JSON for this server might look like this, assuming the server i
 ```json
 {
   "mcpServers": {
-    "postpeer_api": {
+    "postpeer_typescript_api": {
       "url": "http://localhost:3000",
       "headers": {
         "x-access-key": "My API Key"

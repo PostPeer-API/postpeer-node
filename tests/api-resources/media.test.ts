@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import Postpeer from 'postpeer';
+import Postpeer from '@postpeer/typescript';
 
 const client = new Postpeer({
   apiKey: 'My API Key',

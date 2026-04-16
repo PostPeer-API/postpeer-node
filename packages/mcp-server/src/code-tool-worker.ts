@@ -5,7 +5,7 @@ import util from 'node:util';
 import Fuse from 'fuse.js';
 import ts from 'typescript';
 import { WorkerOutput } from './code-tool-types';
-import { Postpeer, ClientOptions } from 'postpeer';
+import { Postpeer, ClientOptions } from '@postpeer/typescript';
 
 async function tseval(code: string) {
   return import('data:application/typescript;charset=utf-8;base64,' + Buffer.from(code).toString('base64'));
@@ -57,7 +57,7 @@ function getRunFunctionSource(code: string): {
 function getTSDiagnostics(code: string): string[] {
   const functionSource = getRunFunctionSource(code)!;
   const codeWithImport = [
-    'import { Postpeer } from "postpeer";',
+    'import { Postpeer } from "@postpeer/typescript";',
     functionSource.type === 'declaration' ?
       `async function run(${functionSource.client}: Postpeer)`
     : `const run: (${functionSource.client}: Postpeer) => Promise<unknown> =`,

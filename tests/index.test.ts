@@ -1,10 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIPromise } from 'postpeer/core/api-promise';
+import { APIPromise } from '@postpeer/typescript/core/api-promise';
 
 import util from 'node:util';
-import Postpeer from 'postpeer';
-import { APIUserAbortError } from 'postpeer';
+import Postpeer from '@postpeer/typescript';
+import { APIUserAbortError } from '@postpeer/typescript';
 const defaultFetch = fetch;
 
 describe('instantiate client', () => {

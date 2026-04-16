@@ -1,6 +1,6 @@
 import fs from 'fs';
-import type { ResponseLike } from 'postpeer/internal/to-file';
-import { toFile } from 'postpeer/core/uploads';
+import type { ResponseLike } from '@postpeer/typescript/internal/to-file';
+import { toFile } from '@postpeer/typescript/core/uploads';
 import { File } from 'node:buffer';
 
 class MyClass {
@@ -97,7 +97,7 @@ describe('missing File error message', () => {
   });
 
   test('is thrown', async () => {
-    const uploads = await import('postpeer/core/uploads');
+    const uploads = await import('@postpeer/typescript/core/uploads');
     await expect(
       uploads.toFile(mockResponse({ url: 'https://example.com/my/audio.mp3' })),
     ).rejects.toMatchInlineSnapshot(
