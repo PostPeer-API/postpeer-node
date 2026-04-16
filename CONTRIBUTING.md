@@ -42,15 +42,15 @@ If you’d like to use the repository from source, you can either install from g
 To install via git:
 
 ```sh
-$ npm install git+ssh://git@github.com:PostPeer-API/postpeer-typescript.git
+$ npm install git+ssh://git@github.com:PostPeer-API/postpeer-node.git
 ```
 
 Alternatively, to link a local copy of the repo:
 
 ```sh
 # Clone
-$ git clone https://www.github.com/PostPeer-API/postpeer-typescript
-$ cd postpeer-typescript
+$ git clone https://www.github.com/PostPeer-API/postpeer-node
+$ cd postpeer-node
 
 # With yarn
 $ yarn link
@@ -93,7 +93,7 @@ the changes aren't made through the automated pipeline, you may want to make rel
 
 ### Publish with a GitHub workflow
 
-You can release to package managers by using [the `Publish NPM` GitHub action](https://www.github.com/PostPeer-API/postpeer-typescript/actions/workflows/publish-npm.yml). This requires a setup organization or repository secret to be set up.
+You can release to package managers by using [the `Publish NPM` GitHub action](https://www.github.com/PostPeer-API/postpeer-node/actions/workflows/publish-npm.yml). This requires a setup organization or repository secret to be set up.
 
 ### Publish manually
 
