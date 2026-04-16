@@ -1,4 +1,4 @@
-# Post Peer TypeScript API Library
+# PostPeer TypeScript API Library
 
 [![NPM version](<https://img.shields.io/npm/v/@postpeer/typescript.svg?label=npm%20(stable)>)](https://npmjs.org/package/@postpeer/typescript) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@postpeer/typescript)
 
