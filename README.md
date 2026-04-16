@@ -4,9 +4,10 @@
 
 This library provides convenient access to the PostPeer REST API from server-side TypeScript or JavaScript.
 
+
 ## MCP Server
 
-Use the Post Peer MCP Server to enable AI assistants to interact with this API, allowing them to explore endpoints, make test requests, and use documentation to help integrate this SDK into your application.
+Use the Postpeer MCP Server to enable AI assistants to interact with this API, allowing them to explore endpoints, make test requests, and use documentation to help integrate this SDK into your application.
 
 [![Add to Cursor](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en-US/install-mcp?name=postpeer-mcp&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyIteSIsInBvc3RwZWVyLW1jcCJdLCJlbnYiOnsiUE9TVFBFRVJfQVBJX0tFWSI6Ik15IEFQSSBLZXkifX0)
 [![Install in VS Code](https://img.shields.io/badge/_-Add_to_VS_Code-blue?style=for-the-badge&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCA0MCA0MCI+PHBhdGggZmlsbD0iI0VFRSIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMzAuMjM1IDM5Ljg4NGEyLjQ5MSAyLjQ5MSAwIDAgMS0xLjc4MS0uNzNMMTIuNyAyNC43OGwtMy40NiAyLjYyNC0zLjQwNiAyLjU4MmExLjY2NSAxLjY2NSAwIDAgMS0xLjA4Mi4zMzggMS42NjQgMS42NjQgMCAwIDEtMS4wNDYtLjQzMWwtMi4yLTJhMS42NjYgMS42NjYgMCAwIDEgMC0yLjQ2M0w3LjQ1OCAyMCA0LjY3IDE3LjQ1MyAxLjUwNyAxNC41N2ExLjY2NSAxLjY2NSAwIDAgMSAwLTIuNDYzbDIuMi0yYTEuNjY1IDEuNjY1IDAgMCAxIDIuMTMtLjA5N2w2Ljg2MyA1LjIwOUwyOC40NTIuODQ0YTIuNDg4IDIuNDg4IDAgMCAxIDEuODQxLS43MjljLjM1MS4wMDkuNjk5LjA5MSAxLjAxOS4yNDVsOC4yMzYgMy45NjFhMi41IDIuNSAwIDAgMSAxLjQxNSAyLjI1M3YuMDk5LS4wNDVWMzMuMzd2LS4wNDUuMDk1YTIuNTAxIDIuNTAxIDAgMCAxLTEuNDE2IDIuMjU3bC04LjIzNSAzLjk2MWEyLjQ5MiAyLjQ5MiAwIDAgMS0xLjA3Ny4yNDZabS43MTYtMjguOTQ3LTExLjk0OCA5LjA2MiAxMS45NTIgOS4wNjUtLjAwNC0xOC4xMjdaIi8+PC9zdmc+)](https://vscode.stainless.com/mcp/%7B%22name%22%3A%22postpeer-mcp%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22postpeer-mcp%22%5D%2C%22env%22%3A%7B%22POSTPEER_API_KEY%22%3A%22My%20API%20Key%22%7D%7D)
@@ -25,9 +26,9 @@ The full API of this library can be found in [api.md](api.md).
 
 <!-- prettier-ignore -->
 ```js
-import PostPeer from '@postpeer/node';
+import Postpeer from '@postpeer/node';
 
-const client = new PostPeer({
+const client = new Postpeer({
   apiKey: process.env['POSTPEER_API_KEY'], // This is the default and can be omitted
 });
 
@@ -42,13 +43,13 @@ This library includes TypeScript definitions for all request params and response
 
 <!-- prettier-ignore -->
 ```ts
-import PostPeer from '@postpeer/node';
+import Postpeer from '@postpeer/node';
 
-const client = new PostPeer({
+const client = new Postpeer({
   apiKey: process.env['POSTPEER_API_KEY'], // This is the default and can be omitted
 });
 
-const response: PostPeer.HealthCheckResponse = await client.health.check();
+const response: Postpeer.HealthCheckResponse = await client.health.check();
 ```
 
 Documentation for each method, request param, and response field are available in docstrings and will appear on hover in most modern editors.
@@ -62,7 +63,7 @@ a subclass of `APIError` will be thrown:
 <!-- prettier-ignore -->
 ```ts
 const response = await client.health.check().catch(async (err) => {
-  if (err instanceof PostPeer.APIError) {
+  if (err instanceof Postpeer.APIError) {
     console.log(err.status); // 400
     console.log(err.name); // BadRequestError
     console.log(err.headers); // {server: 'nginx', ...}
@@ -96,7 +97,7 @@ You can use the `maxRetries` option to configure or disable this:
 <!-- prettier-ignore -->
 ```js
 // Configure the default for all requests:
-const client = new PostPeer({
+const client = new Postpeer({
   maxRetries: 0, // default is 2
 });
 
@@ -113,7 +114,7 @@ Requests time out after 1 minute by default. You can configure this with a `time
 <!-- prettier-ignore -->
 ```ts
 // Configure the default for all requests:
-const client = new PostPeer({
+const client = new Postpeer({
   timeout: 20 * 1000, // 20 seconds (default is 1 minute)
 });
 
@@ -139,7 +140,7 @@ Unlike `.asResponse()` this method consumes the body, returning once it is parse
 
 <!-- prettier-ignore -->
 ```ts
-const client = new PostPeer();
+const client = new Postpeer();
 
 const response = await client.health.check().asResponse();
 console.log(response.headers.get('X-My-Header'));
@@ -160,13 +161,13 @@ console.log(response.ok);
 
 The log level can be configured in two ways:
 
-1. Via the `POST_PEER_LOG` environment variable
+1. Via the `POSTPEER_LOG` environment variable
 2. Using the `logLevel` client option (overrides the environment variable if set)
 
 ```ts
-import PostPeer from '@postpeer/node';
+import Postpeer from '@postpeer/node';
 
-const client = new PostPeer({
+const client = new Postpeer({
   logLevel: 'debug', // Show all log messages
 });
 ```
@@ -192,13 +193,13 @@ When providing a custom logger, the `logLevel` option still controls which messa
 below the configured level will not be sent to your logger.
 
 ```ts
-import PostPeer from '@postpeer/node';
+import Postpeer from '@postpeer/node';
 import pino from 'pino';
 
 const logger = pino();
 
-const client = new PostPeer({
-  logger: logger.child({ name: 'PostPeer' }),
+const client = new Postpeer({
+  logger: logger.child({ name: 'Postpeer' }),
   logLevel: 'debug', // Send all messages to pino, allowing it to filter
 });
 ```
@@ -261,10 +262,10 @@ globalThis.fetch = fetch;
 Or pass it to the client:
 
 ```ts
-import PostPeer from '@postpeer/node';
+import Postpeer from '@postpeer/node';
 import fetch from 'my-fetch';
 
-const client = new PostPeer({ fetch });
+const client = new Postpeer({ fetch });
 ```
 
 ### Fetch options
@@ -272,9 +273,9 @@ const client = new PostPeer({ fetch });
 If you want to set custom `fetch` options without overriding the `fetch` function, you can provide a `fetchOptions` object when instantiating the client or making a request. (Request-specific options override client options.)
 
 ```ts
-import PostPeer from '@postpeer/node';
+import Postpeer from '@postpeer/node';
 
-const client = new PostPeer({
+const client = new Postpeer({
   fetchOptions: {
     // `RequestInit` options
   },
@@ -289,11 +290,11 @@ options to requests:
 <img src="https://raw.githubusercontent.com/stainless-api/sdk-assets/refs/heads/main/node.svg" align="top" width="18" height="21"> **Node** <sup>[[docs](https://github.com/nodejs/undici/blob/main/docs/docs/api/ProxyAgent.md#example---proxyagent-with-fetch)]</sup>
 
 ```ts
-import PostPeer from '@postpeer/node';
+import Postpeer from '@postpeer/node';
 import * as undici from 'undici';
 
 const proxyAgent = new undici.ProxyAgent('http://localhost:8888');
-const client = new PostPeer({
+const client = new Postpeer({
   fetchOptions: {
     dispatcher: proxyAgent,
   },
@@ -303,9 +304,9 @@ const client = new PostPeer({
 <img src="https://raw.githubusercontent.com/stainless-api/sdk-assets/refs/heads/main/bun.svg" align="top" width="18" height="21"> **Bun** <sup>[[docs](https://bun.sh/guides/http/proxy)]</sup>
 
 ```ts
-import PostPeer from '@postpeer/node';
+import Postpeer from '@postpeer/node';
 
-const client = new PostPeer({
+const client = new Postpeer({
   fetchOptions: {
     proxy: 'http://localhost:8888',
   },
@@ -315,10 +316,10 @@ const client = new PostPeer({
 <img src="https://raw.githubusercontent.com/stainless-api/sdk-assets/refs/heads/main/deno.svg" align="top" width="18" height="21"> **Deno** <sup>[[docs](https://docs.deno.com/api/deno/~/Deno.createHttpClient)]</sup>
 
 ```ts
-import PostPeer from 'npm:@postpeer/node';
+import Postpeer from 'npm:@postpeer/node';
 
 const httpClient = Deno.createHttpClient({ proxy: { url: 'http://localhost:8888' } });
-const client = new PostPeer({
+const client = new Postpeer({
   fetchOptions: {
     client: httpClient,
   },
@@ -337,7 +338,7 @@ This package generally follows [SemVer](https://semver.org/spec/v2.0.0.html) con
 
 We take backwards-compatibility seriously and work hard to ensure you can rely on a smooth upgrade experience.
 
-We are keen for your feedback; please open an [issue](https://www.github.com/PostPeer-API/postpeer-typescript/issues) with questions, bugs, or suggestions.
+We are keen for your feedback; please open an [issue](https://www.github.com/PostPeer-API/postpeer-node/issues) with questions, bugs, or suggestions.
 
 ## Requirements
 

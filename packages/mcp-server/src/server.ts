@@ -8,7 +8,7 @@ import {
   SetLevelRequestSchema,
 } from '@modelcontextprotocol/sdk/types.js';
 import { ClientOptions } from '@postpeer/node';
-import PostPeer from '@postpeer/node';
+import Postpeer from '@postpeer/node';
 import { codeTool } from './code-tool';
 import docsSearchTool from './docs-search-tool';
 import { setLocalSearch } from './docs-search-tool';
@@ -28,7 +28,7 @@ export const newMcpServer = async ({
   new McpServer(
     {
       name: 'postpeer_node_api',
-      version: '0.3.2',
+      version: '0.3.1',
     },
     {
       instructions: await getInstructions({ stainlessApiKey, customInstructionsPath }),
@@ -72,15 +72,15 @@ export async function initMcpServer(params: {
     setLocalSearch(localSearch);
   }
 
-  let _client: PostPeer | undefined;
+  let _client: Postpeer | undefined;
   let _clientError: Error | undefined;
   let _logLevel: 'debug' | 'info' | 'warn' | 'error' | 'off' | undefined;
 
-  const getClient = (): PostPeer => {
+  const getClient = (): Postpeer => {
     if (_clientError) throw _clientError;
     if (!_client) {
       try {
-        _client = new PostPeer({
+        _client = new Postpeer({
           logger,
           ...params.clientOptions,
           defaultHeaders: {
@@ -115,7 +115,7 @@ export async function initMcpServer(params: {
       throw new Error(`Unknown tool: ${name}`);
     }
 
-    let client: PostPeer;
+    let client: Postpeer;
     try {
       client = getClient();
     } catch (error) {

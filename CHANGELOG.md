@@ -1,13 +1,5 @@
 # Changelog
 
-## 0.3.2 (2026-04-16)
-
-Full Changelog: [v0.3.1...v0.3.2](https://github.com/PostPeer-API/postpeer-typescript/compare/v0.3.1...v0.3.2)
-
-### Chores
-
-* update SDK settings ([c22d6b9](https://github.com/PostPeer-API/postpeer-typescript/commit/c22d6b97dfb487f2d849be44f9f93d727ba936f2))
-
 ## 0.3.1 (2026-04-16)
 
 Full Changelog: [v0.3.0...v0.3.1](https://github.com/PostPeer-API/postpeer-typescript/compare/v0.3.0...v0.3.1)

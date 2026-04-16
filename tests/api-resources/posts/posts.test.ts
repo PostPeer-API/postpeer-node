@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import PostPeer from '@postpeer/node';
+import Postpeer from '@postpeer/node';
 
-const client = new PostPeer({
+const client = new Postpeer({
   apiKey: 'My API Key',
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
@@ -98,7 +98,7 @@ describe('resource posts', () => {
         },
         { path: '/_stainless_unknown_path' },
       ),
-    ).rejects.toThrow(PostPeer.NotFoundError);
+    ).rejects.toThrow(Postpeer.NotFoundError);
   });
 
   // Mock server tests are disabled
