@@ -1,4 +1,4 @@
-import { createPathTagFunction, encodeURIPath } from '@postpeer/typescript/internal/utils/path';
+import { createPathTagFunction, encodeURIPath } from '@postpeer/node/internal/utils/path';
 import { inspect } from 'node:util';
 import { runInNewContext } from 'node:vm';
 

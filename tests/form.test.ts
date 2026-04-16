@@ -1,5 +1,5 @@
-import { multipartFormRequestOptions, createForm } from '@postpeer/typescript/internal/uploads';
-import { toFile } from '@postpeer/typescript/core/uploads';
+import { multipartFormRequestOptions, createForm } from '@postpeer/node/internal/uploads';
+import { toFile } from '@postpeer/node/core/uploads';
 
 describe('form data validation', () => {
   test('valid values do not error', async () => {

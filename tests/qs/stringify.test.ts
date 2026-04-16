@@ -1,7 +1,7 @@
 import iconv from 'iconv-lite';
-import { stringify } from '@postpeer/typescript/internal/qs';
-import { encode } from '@postpeer/typescript/internal/qs/utils';
-import { StringifyOptions } from '@postpeer/typescript/internal/qs/types';
+import { stringify } from '@postpeer/node/internal/qs';
+import { encode } from '@postpeer/node/internal/qs/utils';
+import { StringifyOptions } from '@postpeer/node/internal/qs/types';
 import { empty_test_cases } from './empty-keys-cases';
 import assert from 'assert';
 

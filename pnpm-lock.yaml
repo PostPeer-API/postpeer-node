@@ -86,7 +86,7 @@ importers:
       '@modelcontextprotocol/sdk':
         specifier: ^1.27.1
         version: 1.27.1(zod@3.25.76)
-      '@postpeer/typescript':
+      '@postpeer/node':
         specifier: workspace:*
         version: link:../..
       '@valtown/deno-http-worker':

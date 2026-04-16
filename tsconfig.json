@@ -8,8 +8,8 @@
     "moduleResolution": "node",
     "esModuleInterop": true,
     "paths": {
-      "@postpeer/typescript/*": ["./src/*"],
-      "@postpeer/typescript": ["./src/index.ts"]
+      "@postpeer/node/*": ["./src/*"],
+      "@postpeer/node": ["./src/index.ts"]
     },
     "noEmit": true,
 
