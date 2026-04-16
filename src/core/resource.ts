@@ -1,11 +1,11 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import type { PostPeer } from '../client';
+import type { Postpeer } from '../client';
 
 export abstract class APIResource {
-  protected _client: PostPeer;
+  protected _client: Postpeer;
 
-  constructor(client: PostPeer) {
+  constructor(client: Postpeer) {
     this._client = client;
   }
 }

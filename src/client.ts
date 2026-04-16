@@ -54,7 +54,7 @@ export interface ClientOptions {
   /**
    * Override the default base URL for the API, e.g., "https://api.example.com/v2/"
    *
-   * Defaults to process.env['POST_PEER_BASE_URL'].
+   * Defaults to process.env['POSTPEER_BASE_URL'].
    */
   baseURL?: string | null | undefined;
 
@@ -108,7 +108,7 @@ export interface ClientOptions {
   /**
    * Set the log level.
    *
-   * Defaults to process.env['POST_PEER_LOG'] or 'warn' if it isn't set.
+   * Defaults to process.env['POSTPEER_LOG'] or 'warn' if it isn't set.
    */
   logLevel?: LogLevel | undefined;
 
@@ -121,9 +121,9 @@ export interface ClientOptions {
 }
 
 /**
- * API Client for interfacing with the Post Peer API.
+ * API Client for interfacing with the Postpeer API.
  */
-export class PostPeer {
+export class Postpeer {
   apiKey: string;
 
   baseURL: string;
@@ -139,10 +139,10 @@ export class PostPeer {
   private _options: ClientOptions;
 
   /**
-   * API Client for interfacing with the Post Peer API.
+   * API Client for interfacing with the Postpeer API.
    *
    * @param {string | undefined} [opts.apiKey=process.env['POSTPEER_API_KEY'] ?? undefined]
-   * @param {string} [opts.baseURL=process.env['POST_PEER_BASE_URL'] ?? https://api.example.com] - Override the default base URL for the API.
+   * @param {string} [opts.baseURL=process.env['POSTPEER_BASE_URL'] ?? https://api.example.com] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
    * @param {MergedRequestInit} [opts.fetchOptions] - Additional `RequestInit` options to be passed to `fetch` calls.
    * @param {Fetch} [opts.fetch] - Specify a custom `fetch` function implementation.
@@ -151,13 +151,13 @@ export class PostPeer {
    * @param {Record<string, string | undefined>} opts.defaultQuery - Default query parameters to include with every request to the API.
    */
   constructor({
-    baseURL = readEnv('POST_PEER_BASE_URL'),
+    baseURL = readEnv('POSTPEER_BASE_URL'),
     apiKey = readEnv('POSTPEER_API_KEY'),
     ...opts
   }: ClientOptions = {}) {
     if (apiKey === undefined) {
-      throw new Errors.PostPeerError(
-        "The POSTPEER_API_KEY environment variable is missing or empty; either provide it, or instantiate the PostPeer client with an apiKey option, like new PostPeer({ apiKey: 'My API Key' }).",
+      throw new Errors.PostpeerError(
+        "The POSTPEER_API_KEY environment variable is missing or empty; either provide it, or instantiate the Postpeer client with an apiKey option, like new Postpeer({ apiKey: 'My API Key' }).",
       );
     }
 
@@ -168,14 +168,14 @@ export class PostPeer {
     };
 
     this.baseURL = options.baseURL!;
-    this.timeout = options.timeout ?? PostPeer.DEFAULT_TIMEOUT /* 1 minute */;
+    this.timeout = options.timeout ?? Postpeer.DEFAULT_TIMEOUT /* 1 minute */;
     this.logger = options.logger ?? console;
     const defaultLogLevel = 'warn';
     // Set default logLevel early so that we can log a warning in parseLogLevel.
     this.logLevel = defaultLogLevel;
     this.logLevel =
       parseLogLevel(options.logLevel, 'ClientOptions.logLevel', this) ??
-      parseLogLevel(readEnv('POST_PEER_LOG'), "process.env['POST_PEER_LOG']", this) ??
+      parseLogLevel(readEnv('POSTPEER_LOG'), "process.env['POSTPEER_LOG']", this) ??
       defaultLogLevel;
     this.fetchOptions = options.fetchOptions;
     this.maxRetries = options.maxRetries ?? 2;
@@ -710,10 +710,10 @@ export class PostPeer {
     }
   }
 
-  static PostPeer = this;
+  static Postpeer = this;
   static DEFAULT_TIMEOUT = 60000; // 1 minute
 
-  static PostPeerError = Errors.PostPeerError;
+  static PostpeerError = Errors.PostpeerError;
   static APIError = Errors.APIError;
   static APIConnectionError = Errors.APIConnectionError;
   static APIConnectionTimeoutError = Errors.APIConnectionTimeoutError;
@@ -736,13 +736,13 @@ export class PostPeer {
   media: API.Media = new API.Media(this);
 }
 
-PostPeer.Health = Health;
-PostPeer.Connect = Connect;
-PostPeer.Platforms = Platforms;
-PostPeer.Posts = Posts;
-PostPeer.Media = Media;
+Postpeer.Health = Health;
+Postpeer.Connect = Connect;
+Postpeer.Platforms = Platforms;
+Postpeer.Posts = Posts;
+Postpeer.Media = Media;
 
-export declare namespace PostPeer {
+export declare namespace Postpeer {
   export type RequestOptions = Opts.RequestOptions;
 
   export {
