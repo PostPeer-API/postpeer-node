@@ -1,5 +1,5 @@
 {
-  "name": "@postpeer/typescript",
+  "name": "@postpeer/node",
   "version": "0.3.1",
   "description": "The official TypeScript library for the Post Peer API",
   "author": "Post Peer <>",

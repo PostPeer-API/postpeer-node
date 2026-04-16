@@ -25,7 +25,7 @@ async function copyFiles() {
 
   // replace package.json reference with local reference
   for (const dep in pkgJson.dependencies) {
-    if (dep === '@postpeer/typescript') {
+    if (dep === '@postpeer/node') {
       pkgJson.dependencies[dep] = 'file:../../../dist/';
     }
   }

@@ -59,8 +59,8 @@ WORKDIR /app
 # Copy the build results, preserving directory structure
 COPY --from=builder /build .
 
-# Copy the built @postpeer/typescript into node_modules
-COPY --from=builder /build/dist ./node_modules/@postpeer/typescript
+# Copy the built @postpeer/node into node_modules
+COPY --from=builder /build/dist ./node_modules/@postpeer/node
 
 # Change ownership to nodejs user
 RUN chown -R nodejs:nodejs /app

@@ -7,8 +7,8 @@ import {
   ListToolsRequestSchema,
   SetLevelRequestSchema,
 } from '@modelcontextprotocol/sdk/types.js';
-import { ClientOptions } from '@postpeer/typescript';
-import PostPeer from '@postpeer/typescript';
+import { ClientOptions } from '@postpeer/node';
+import PostPeer from '@postpeer/node';
 import { codeTool } from './code-tool';
 import docsSearchTool from './docs-search-tool';
 import { setLocalSearch } from './docs-search-tool';
@@ -27,7 +27,7 @@ export const newMcpServer = async ({
 }) =>
   new McpServer(
     {
-      name: 'postpeer_typescript_api',
+      name: 'postpeer_node_api',
       version: '0.3.1',
     },
     {
