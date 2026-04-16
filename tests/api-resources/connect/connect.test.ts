@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import Postpeer from '@postpeer/typescript';
+import PostPeer from '@postpeer/typescript';
 
-const client = new Postpeer({
+const client = new PostPeer({
   apiKey: 'My API Key',
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
@@ -29,6 +29,6 @@ describe('resource connect', () => {
         { redirectUri: 'https://example.com' },
         { path: '/_stainless_unknown_path' },
       ),
-    ).rejects.toThrow(Postpeer.NotFoundError);
+    ).rejects.toThrow(PostPeer.NotFoundError);
   });
 });

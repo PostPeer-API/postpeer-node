@@ -17,7 +17,7 @@ import { SdkMethod } from './methods';
 import { McpCodeExecutionMode } from './options';
 import { ClientOptions } from '@postpeer/typescript';
 
-const prompt = `Runs JavaScript code to interact with the Postpeer API.
+const prompt = `Runs JavaScript code to interact with the Post Peer API.
 
 You are a skilled TypeScript programmer writing code to interface with the service.
 Define an async function named "run" that takes a single parameter of an initialized SDK client and it will be run.
@@ -149,7 +149,7 @@ const remoteStainlessHandler = async ({
       readEnv('POSTPEER_API_KEY') ?? client.apiKey,
       'set POSTPEER_API_KEY environment variable or provide apiKey client option',
     ),
-    POSTPEER_BASE_URL: readEnv('POSTPEER_BASE_URL') ?? client.baseURL ?? undefined,
+    POST_PEER_BASE_URL: readEnv('POST_PEER_BASE_URL') ?? client.baseURL ?? undefined,
   };
   // Merge any upstream client envs from the request header, with upstream values taking precedence.
   const mergedClientEnvs = { ...localClientEnvs, ...reqContext.upstreamClientEnvs };

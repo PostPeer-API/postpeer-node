@@ -1,4 +1,4 @@
-# Postpeer TypeScript MCP Server
+# Post Peer TypeScript MCP Server
 
 It is generated with [Stainless](https://www.stainless.com/).
 

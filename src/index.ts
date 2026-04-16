@@ -1,12 +1,12 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-export { Postpeer as default } from './client';
+export { PostPeer as default } from './client';
 
 export { type Uploadable, toFile } from './core/uploads';
 export { APIPromise } from './core/api-promise';
-export { Postpeer, type ClientOptions } from './client';
+export { PostPeer, type ClientOptions } from './client';
 export {
-  PostpeerError,
+  PostPeerError,
   APIError,
   APIConnectionError,
   APIConnectionTimeoutError,
