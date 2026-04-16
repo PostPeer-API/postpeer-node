@@ -5,8 +5,8 @@
   "compilerOptions": {
     "rootDir": "./dist/src",
     "paths": {
-      "postpeer/*": ["./dist/src/*"],
-      "postpeer": ["./dist/src/index.ts"]
+      "@postpeer/typescript/*": ["./dist/src/*"],
+      "@postpeer/typescript": ["./dist/src/index.ts"]
     },
     "noEmit": false,
     "declaration": true,

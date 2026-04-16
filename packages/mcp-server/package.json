@@ -1,8 +1,8 @@
 {
   "name": "postpeer-mcp",
-  "version": "0.2.0",
-  "description": "The official MCP Server for the Postpeer API",
-  "author": "Postpeer <>",
+  "version": "0.3.0",
+  "description": "The official MCP Server for the Post Peer API",
+  "author": "Post Peer <>",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
   "type": "commonjs",
@@ -29,7 +29,7 @@
     "fix": "eslint --fix ."
   },
   "dependencies": {
-    "postpeer": "workspace:*",
+    "@postpeer/typescript": "workspace:*",
     "ajv": "^8.18.0",
     "@cloudflare/cabidela": "^0.2.4",
     "@hono/node-server": "^1.19.10",

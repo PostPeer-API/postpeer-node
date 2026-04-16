@@ -55,12 +55,12 @@ $ cd postpeer-typescript
 # With yarn
 $ yarn link
 $ cd ../my-package
-$ yarn link postpeer
+$ yarn link @postpeer/typescript
 
 # With pnpm
 $ pnpm link --global
 $ cd ../my-package
-$ pnpm link --global postpeer
+$ pnpm link --global @postpeer/typescript
 ```
 
 ## Running tests

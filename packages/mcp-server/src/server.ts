@@ -7,8 +7,8 @@ import {
   ListToolsRequestSchema,
   SetLevelRequestSchema,
 } from '@modelcontextprotocol/sdk/types.js';
-import { ClientOptions } from 'postpeer';
-import Postpeer from 'postpeer';
+import { ClientOptions } from '@postpeer/typescript';
+import PostPeer from '@postpeer/typescript';
 import { codeTool } from './code-tool';
 import docsSearchTool from './docs-search-tool';
 import { setLocalSearch } from './docs-search-tool';
@@ -27,8 +27,8 @@ export const newMcpServer = async ({
 }) =>
   new McpServer(
     {
-      name: 'postpeer_api',
-      version: '0.2.0',
+      name: 'postpeer_typescript_api',
+      version: '0.3.0',
     },
     {
       instructions: await getInstructions({ stainlessApiKey, customInstructionsPath }),
@@ -72,15 +72,15 @@ export async function initMcpServer(params: {
     setLocalSearch(localSearch);
   }
 
-  let _client: Postpeer | undefined;
+  let _client: PostPeer | undefined;
   let _clientError: Error | undefined;
   let _logLevel: 'debug' | 'info' | 'warn' | 'error' | 'off' | undefined;
 
-  const getClient = (): Postpeer => {
+  const getClient = (): PostPeer => {
     if (_clientError) throw _clientError;
     if (!_client) {
       try {
-        _client = new Postpeer({
+        _client = new PostPeer({
           logger,
           ...params.clientOptions,
           defaultHeaders: {
@@ -115,7 +115,7 @@ export async function initMcpServer(params: {
       throw new Error(`Unknown tool: ${name}`);
     }
 
-    let client: Postpeer;
+    let client: PostPeer;
     try {
       client = getClient();
     } catch (error) {

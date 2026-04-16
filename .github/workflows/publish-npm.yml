@@ -44,11 +44,11 @@ jobs:
           pnpm tsn scripts/publish-packages.ts "{ \"paths_released\": \"$PATHS_RELEASED\" }"
         env:
           INPUT_PATH: ${{ github.event.inputs.path }}
-          NPM_TOKEN: ${{ secrets.POSTPEER_NPM_TOKEN || secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.POST_PEER_NPM_TOKEN || secrets.NPM_TOKEN }}
 
       - name: Upload MCP Server DXT GitHub release asset
         run: |
           gh release upload ${{ github.event.release.tag_name }} \
-            packages/mcp-server/postpeer_api.mcpb
+            packages/mcp-server/postpeer_typescript_api.mcpb
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
