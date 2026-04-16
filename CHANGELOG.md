@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.4.0 (2026-04-16)
+
+Full Changelog: [v0.3.1...v0.4.0](https://github.com/PostPeer-API/postpeer-node/compare/v0.3.1...v0.4.0)
+
+### Features
+
+* **api:** manual updates ([f6c645f](https://github.com/PostPeer-API/postpeer-node/commit/f6c645f270e89f136b31e6eb77deee347721cc3c))
+
+
+### Chores
+
+* sync repo ([64cc226](https://github.com/PostPeer-API/postpeer-node/commit/64cc226bdaec83152c6fe31c843a952a50ea1b52))
+* update SDK settings ([726ba8c](https://github.com/PostPeer-API/postpeer-node/commit/726ba8cc5e14a8fec6eee1f2c8062254ad7ab49d))
+
 ## 0.3.1 (2026-04-16)
 
 Full Changelog: [v0.3.0...v0.3.1](https://github.com/PostPeer-API/postpeer-typescript/compare/v0.3.0...v0.3.1)
