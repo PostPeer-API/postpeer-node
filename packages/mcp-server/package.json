@@ -1,6 +1,6 @@
 {
   "name": "postpeer-mcp",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "The official MCP Server for the Post Peer API",
   "author": "Post Peer <>",
   "types": "dist/index.d.ts",
