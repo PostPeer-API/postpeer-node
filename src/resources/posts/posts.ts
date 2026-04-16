@@ -409,6 +409,12 @@ export namespace PostCreateParams {
       disable_stitch?: boolean;
 
       /**
+       * When true (default), sends content to the creator's TikTok inbox as a draft. Set
+       * to false to publish immediately (requires an audited app).
+       */
+      draft?: boolean;
+
+      /**
        * AI-generated content disclosure. Defaults to false.
        */
       is_aigc?: boolean;
