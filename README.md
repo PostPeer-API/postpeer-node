@@ -4,10 +4,6 @@
 
 This library provides convenient access to the PostPeer REST API from server-side TypeScript or JavaScript.
 
-The full API of this library can be found in [api.md](api.md).
-
-It is generated with [Stainless](https://www.stainless.com/).
-
 ## MCP Server
 
 Use the Post Peer MCP Server to enable AI assistants to interact with this API, allowing them to explore endpoints, make test requests, and use documentation to help integrate this SDK into your application.
