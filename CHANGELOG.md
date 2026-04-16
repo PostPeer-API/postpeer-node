@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.0 (2026-04-16)
+
+Full Changelog: [v0.1.2...v0.2.0](https://github.com/PostPeer-API/postpeer-typescript/compare/v0.1.2...v0.2.0)
+
+### Features
+
+* **api:** api update ([06b89da](https://github.com/PostPeer-API/postpeer-typescript/commit/06b89dad537b8cca199c69dcba8a5239012dc591))
+
 ## 0.1.2 (2026-04-15)
 
 Full Changelog: [v0.1.1...v0.1.2](https://github.com/PostPeer-API/postpeer-typescript/compare/v0.1.1...v0.1.2)
