@@ -31,16 +31,7 @@ describe('resource posts', () => {
         {
           accountId: '<your-account-id>',
           platform: 'twitter',
-          platformSpecificData: {
-            communityId: 'communityId',
-            poll: { duration_minutes: 5, options: ['string', 'string'] },
-            replySettings: 'following',
-            replyToTweetId: 'replyToTweetId',
-            shareWithFollowers: true,
-            threadItems: [
-              { content: 'content', mediaItems: [{ type: 'image', url: 'https://example.com' }] },
-            ],
-          },
+          platformSpecificData: { foo: 'bar' },
         },
       ],
       mediaItems: [
