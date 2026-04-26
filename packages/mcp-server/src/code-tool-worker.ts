@@ -59,8 +59,8 @@ function getTSDiagnostics(code: string): string[] {
   const codeWithImport = [
     'import { Postpeer } from "@postpeer/node";',
     functionSource.type === 'declaration' ?
-      `async function run(${functionSource.client}: Postpeer)`
-    : `const run: (${functionSource.client}: Postpeer) => Promise<unknown> =`,
+      `async function run(${functionSource.client}: Postpeer)` :
+      `const run: (${functionSource.client}: Postpeer) => Promise<unknown> =`,
     functionSource.code,
   ].join('\n');
   const sourcePath = path.resolve('code.ts');
@@ -108,20 +108,20 @@ function getTSDiagnostics(code: string): string[] {
 
 const fuse = new Fuse(
   [
-    'client.health.check',
-    'client.health.verifyAccessKey',
-    'client.connect.getOAuthURL',
-    'client.connect.integrations.disconnect',
-    'client.connect.integrations.list',
-    'client.platforms.list',
-    'client.posts.create',
-    'client.posts.delete',
-    'client.posts.list',
-    'client.posts.retrieve',
-    'client.posts.scheduled.cancel',
-    'client.posts.scheduled.list',
-    'client.posts.scheduled.reschedule',
-    'client.media.upload',
+    "client.health.check",
+    "client.health.verifyAccessKey",
+    "client.connect.getOAuthURL",
+    "client.connect.integrations.disconnect",
+    "client.connect.integrations.list",
+    "client.platforms.list",
+    "client.posts.create",
+    "client.posts.delete",
+    "client.posts.list",
+    "client.posts.retrieve",
+    "client.posts.scheduled.cancel",
+    "client.posts.scheduled.list",
+    "client.posts.scheduled.reschedule",
+    "client.media.upload"
   ],
   { threshold: 1, shouldSort: true },
 );
@@ -204,12 +204,7 @@ function parseError(code: string, error: unknown): string | undefined {
     // Deno uses V8; the first "<anonymous>:LINE:COLUMN" is the top of stack.
     const lineNumber = error.stack?.match(/<anonymous>:([0-9]+):[0-9]+/)?.[1];
     // -1 for the zero-based indexing
-    const line =
-      lineNumber &&
-      code
-        .split('\n')
-        .at(parseInt(lineNumber, 10) - 1)
-        ?.trim();
+    const line = lineNumber && code.split('\n').at(parseInt(lineNumber, 10) - 1)?.trim();
     return line ? `${message}\n  at line ${lineNumber}\n    ${line}` : message;
   } catch {
     return message;
@@ -221,9 +216,8 @@ const fetch = async (req: Request): Promise<Response> => {
 
   const runFunctionSource = code ? getRunFunctionSource(code) : null;
   if (!runFunctionSource) {
-    const message =
-      code ?
-        'The code is missing a top-level `run` function.'
+    const message = code
+      ? 'The code is missing a top-level `run` function.'
       : 'The code argument is missing. Provide one containing a top-level `run` function.';
     return Response.json(
       {
@@ -268,7 +262,7 @@ const fetch = async (req: Request): Promise<Response> => {
   try {
     let run_ = async (client: any) => {};
     run_ = (await tseval(`${code}\nexport default run;`)).default;
-    const result = await run_(makeSdkProxy(client, { path: ['client'] }));
+    const result = await run_(makeSdkProxy(client, { path: ["client"] }));
     return Response.json({
       is_error: false,
       result,

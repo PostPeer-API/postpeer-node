@@ -31,6 +31,6 @@ export interface HealthVerifyAccessKeyResponse {
 export declare namespace Health {
   export {
     type HealthCheckResponse as HealthCheckResponse,
-    type HealthVerifyAccessKeyResponse as HealthVerifyAccessKeyResponse,
+    type HealthVerifyAccessKeyResponse as HealthVerifyAccessKeyResponse
   };
 }

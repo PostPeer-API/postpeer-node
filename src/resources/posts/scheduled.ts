@@ -43,11 +43,7 @@ export class Scheduled extends APIResource {
    * );
    * ```
    */
-  reschedule(
-    postID: string,
-    body: ScheduledRescheduleParams,
-    options?: RequestOptions,
-  ): APIPromise<ScheduledRescheduleResponse> {
+  reschedule(postID: string, body: ScheduledRescheduleParams, options?: RequestOptions): APIPromise<ScheduledRescheduleResponse> {
     return this._client.patch(path`/v1/posts/scheduled/${postID}`, { body, ...options });
   }
 }
@@ -148,6 +144,6 @@ export declare namespace Scheduled {
     type ScheduledListResponse as ScheduledListResponse,
     type ScheduledCancelResponse as ScheduledCancelResponse,
     type ScheduledRescheduleResponse as ScheduledRescheduleResponse,
-    type ScheduledRescheduleParams as ScheduledRescheduleParams,
+    type ScheduledRescheduleParams as ScheduledRescheduleParams
   };
 }

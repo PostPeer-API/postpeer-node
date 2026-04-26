@@ -3,13 +3,7 @@
 import { APIResource } from '../../core/resource';
 import * as PostsAPI from './posts';
 import * as ScheduledAPI from './scheduled';
-import {
-  Scheduled,
-  ScheduledCancelResponse,
-  ScheduledListResponse,
-  ScheduledRescheduleParams,
-  ScheduledRescheduleResponse,
-} from './scheduled';
+import { Scheduled, ScheduledCancelResponse, ScheduledListResponse, ScheduledRescheduleParams, ScheduledRescheduleResponse } from './scheduled';
 import { APIPromise } from '../../core/api-promise';
 import { RequestOptions } from '../../internal/request-options';
 import { path } from '../../internal/utils/path';
@@ -56,10 +50,7 @@ export class Posts extends APIResource {
    * const posts = await client.posts.list();
    * ```
    */
-  list(
-    query: PostListParams | null | undefined = {},
-    options?: RequestOptions,
-  ): APIPromise<PostListResponse> {
+  list(query: PostListParams | null | undefined = {}, options?: RequestOptions): APIPromise<PostListResponse> {
     return this._client.get('/v1/posts/', { query, ...options });
   }
 
@@ -137,7 +128,7 @@ export namespace PostSummary {
   }
 }
 
-export type Status = 'draft' | 'pending' | 'scheduled' | 'publishing' | 'published' | 'failed' | 'partial';
+export type Status = 'draft' | 'pending' | 'scheduled' | 'publishing' | 'published' | 'failed' | 'partial'
 
 export interface PostCreateResponse {
   platforms: Array<PostCreateResponse.Platform>;
@@ -316,7 +307,7 @@ export declare namespace Posts {
     type PostListResponse as PostListResponse,
     type PostDeleteResponse as PostDeleteResponse,
     type PostCreateParams as PostCreateParams,
-    type PostListParams as PostListParams,
+    type PostListParams as PostListParams
   };
 
   export {
@@ -324,6 +315,6 @@ export declare namespace Posts {
     type ScheduledListResponse as ScheduledListResponse,
     type ScheduledCancelResponse as ScheduledCancelResponse,
     type ScheduledRescheduleResponse as ScheduledRescheduleResponse,
-    type ScheduledRescheduleParams as ScheduledRescheduleParams,
+    type ScheduledRescheduleParams as ScheduledRescheduleParams
   };
 }
