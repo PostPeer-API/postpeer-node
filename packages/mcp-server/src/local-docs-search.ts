@@ -62,18 +62,18 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## check\n\n`client.health.check(): { ok: boolean; }`\n\n**get** `/v1/health`\n\nHealth check\n\n### Returns\n\n- `{ ok: boolean; }`\n\n  - `ok: boolean`\n\n### Example\n\n```typescript\nimport Postpeer from '@postpeer/node';\n\nconst client = new Postpeer();\n\nconst response = await client.health.check();\n\nconsole.log(response);\n```",
     perLanguage: {
-      http: {
-        example: 'curl https://api.example.com/v1/health \\\n    -H "x-access-key: $POSTPEER_API_KEY"',
+      typescript: {
+        method: 'client.health.check',
+        example:
+          "import Postpeer from '@postpeer/node';\n\nconst client = new Postpeer({\n  apiKey: process.env['POSTPEER_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.health.check();\n\nconsole.log(response.ok);",
       },
       python: {
         method: 'health.check',
         example:
           'import os\nfrom postpeer import Postpeer\n\nclient = Postpeer(\n    api_key=os.environ.get("POSTPEER_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.health.check()\nprint(response.ok)',
       },
-      typescript: {
-        method: 'client.health.check',
-        example:
-          "import Postpeer from '@postpeer/node';\n\nconst client = new Postpeer({\n  apiKey: process.env['POSTPEER_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.health.check();\n\nconsole.log(response.ok);",
+      http: {
+        example: 'curl https://api.example.com/v1/health \\\n    -H "x-access-key: $POSTPEER_API_KEY"',
       },
     },
   },
@@ -89,18 +89,18 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## verify_access_key\n\n`client.health.verifyAccessKey(): { ok: boolean; }`\n\n**get** `/v1/health/auth`\n\nVerify that the provided access key is valid\n\n### Returns\n\n- `{ ok: boolean; }`\n\n  - `ok: boolean`\n\n### Example\n\n```typescript\nimport Postpeer from '@postpeer/node';\n\nconst client = new Postpeer();\n\nconst response = await client.health.verifyAccessKey();\n\nconsole.log(response);\n```",
     perLanguage: {
-      http: {
-        example: 'curl https://api.example.com/v1/health/auth \\\n    -H "x-access-key: $POSTPEER_API_KEY"',
+      typescript: {
+        method: 'client.health.verifyAccessKey',
+        example:
+          "import Postpeer from '@postpeer/node';\n\nconst client = new Postpeer({\n  apiKey: process.env['POSTPEER_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.health.verifyAccessKey();\n\nconsole.log(response.ok);",
       },
       python: {
         method: 'health.verify_access_key',
         example:
           'import os\nfrom postpeer import Postpeer\n\nclient = Postpeer(\n    api_key=os.environ.get("POSTPEER_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.health.verify_access_key()\nprint(response.ok)',
       },
-      typescript: {
-        method: 'client.health.verifyAccessKey',
-        example:
-          "import Postpeer from '@postpeer/node';\n\nconst client = new Postpeer({\n  apiKey: process.env['POSTPEER_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.health.verifyAccessKey();\n\nconsole.log(response.ok);",
+      http: {
+        example: 'curl https://api.example.com/v1/health/auth \\\n    -H "x-access-key: $POSTPEER_API_KEY"',
       },
     },
   },
@@ -120,19 +120,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## get_oauth_url\n\n`client.connect.getOAuthURL(platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin', redirectUri?: string): { url: string; }`\n\n**get** `/v1/connect/{platform}`\n\nGet OAuth URL for a platform\n\n### Parameters\n\n- `platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin'`\n\n- `redirectUri?: string`\n  URL to redirect to after a successful connection\n\n### Returns\n\n- `{ url: string; }`\n\n  - `url: string`\n\n### Example\n\n```typescript\nimport Postpeer from '@postpeer/node';\n\nconst client = new Postpeer();\n\nconst response = await client.connect.getOAuthURL('twitter');\n\nconsole.log(response);\n```",
     perLanguage: {
-      http: {
+      typescript: {
+        method: 'client.connect.getOAuthURL',
         example:
-          'curl https://api.example.com/v1/connect/$PLATFORM \\\n    -H "x-access-key: $POSTPEER_API_KEY"',
+          "import Postpeer from '@postpeer/node';\n\nconst client = new Postpeer({\n  apiKey: process.env['POSTPEER_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.connect.getOAuthURL('twitter');\n\nconsole.log(response.url);",
       },
       python: {
         method: 'connect.get_oauth_url',
         example:
           'import os\nfrom postpeer import Postpeer\n\nclient = Postpeer(\n    api_key=os.environ.get("POSTPEER_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.connect.get_oauth_url(\n    platform="twitter",\n)\nprint(response.url)',
       },
-      typescript: {
-        method: 'client.connect.getOAuthURL',
+      http: {
         example:
-          "import Postpeer from '@postpeer/node';\n\nconst client = new Postpeer({\n  apiKey: process.env['POSTPEER_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.connect.getOAuthURL('twitter');\n\nconsole.log(response.url);",
+          'curl https://api.example.com/v1/connect/$PLATFORM \\\n    -H "x-access-key: $POSTPEER_API_KEY"',
       },
     },
   },
@@ -149,19 +149,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## list\n\n`client.connect.integrations.list(): { integrations: object[]; success: boolean; }`\n\n**get** `/v1/connect/integrations`\n\nList all integrations connected to this project\n\n### Returns\n\n- `{ integrations: { id: string; createdAt: string; displayName: string; imageUrl: string; platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin'; platformUserId: string; }[]; success: boolean; }`\n\n  - `integrations: { id: string; createdAt: string; displayName: string; imageUrl: string; platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin'; platformUserId: string; }[]`\n  - `success: boolean`\n\n### Example\n\n```typescript\nimport Postpeer from '@postpeer/node';\n\nconst client = new Postpeer();\n\nconst integrations = await client.connect.integrations.list();\n\nconsole.log(integrations);\n```",
     perLanguage: {
-      http: {
+      typescript: {
+        method: 'client.connect.integrations.list',
         example:
-          'curl https://api.example.com/v1/connect/integrations \\\n    -H "x-access-key: $POSTPEER_API_KEY"',
+          "import Postpeer from '@postpeer/node';\n\nconst client = new Postpeer({\n  apiKey: process.env['POSTPEER_API_KEY'], // This is the default and can be omitted\n});\n\nconst integrations = await client.connect.integrations.list();\n\nconsole.log(integrations.integrations);",
       },
       python: {
         method: 'connect.integrations.list',
         example:
           'import os\nfrom postpeer import Postpeer\n\nclient = Postpeer(\n    api_key=os.environ.get("POSTPEER_API_KEY"),  # This is the default and can be omitted\n)\nintegrations = client.connect.integrations.list()\nprint(integrations.integrations)',
       },
-      typescript: {
-        method: 'client.connect.integrations.list',
+      http: {
         example:
-          "import Postpeer from '@postpeer/node';\n\nconst client = new Postpeer({\n  apiKey: process.env['POSTPEER_API_KEY'], // This is the default and can be omitted\n});\n\nconst integrations = await client.connect.integrations.list();\n\nconsole.log(integrations.integrations);",
+          'curl https://api.example.com/v1/connect/integrations \\\n    -H "x-access-key: $POSTPEER_API_KEY"',
       },
     },
   },
@@ -178,19 +178,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## disconnect\n\n`client.connect.integrations.disconnect(id: string): { message: string; success: boolean; }`\n\n**delete** `/v1/connect/integrations/{id}`\n\nDisconnect a platform integration\n\n### Parameters\n\n- `id: string`\n\n### Returns\n\n- `{ message: string; success: boolean; }`\n\n  - `message: string`\n  - `success: boolean`\n\n### Example\n\n```typescript\nimport Postpeer from '@postpeer/node';\n\nconst client = new Postpeer();\n\nconst response = await client.connect.integrations.disconnect('id');\n\nconsole.log(response);\n```",
     perLanguage: {
-      http: {
+      typescript: {
+        method: 'client.connect.integrations.disconnect',
         example:
-          'curl https://api.example.com/v1/connect/integrations/$ID \\\n    -X DELETE \\\n    -H "x-access-key: $POSTPEER_API_KEY"',
+          "import Postpeer from '@postpeer/node';\n\nconst client = new Postpeer({\n  apiKey: process.env['POSTPEER_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.connect.integrations.disconnect('id');\n\nconsole.log(response.message);",
       },
       python: {
         method: 'connect.integrations.disconnect',
         example:
           'import os\nfrom postpeer import Postpeer\n\nclient = Postpeer(\n    api_key=os.environ.get("POSTPEER_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.connect.integrations.disconnect(\n    "id",\n)\nprint(response.message)',
       },
-      typescript: {
-        method: 'client.connect.integrations.disconnect',
+      http: {
         example:
-          "import Postpeer from '@postpeer/node';\n\nconst client = new Postpeer({\n  apiKey: process.env['POSTPEER_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.connect.integrations.disconnect('id');\n\nconsole.log(response.message);",
+          'curl https://api.example.com/v1/connect/integrations/$ID \\\n    -X DELETE \\\n    -H "x-access-key: $POSTPEER_API_KEY"',
       },
     },
   },
@@ -207,18 +207,18 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## list\n\n`client.platforms.list(): { platforms: object[]; }`\n\n**get** `/v1/platforms`\n\nList available platforms and their status\n\n### Returns\n\n- `{ platforms: { name: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin'; status: 'prod' | 'beta' | 'dev'; }[]; }`\n\n  - `platforms: { name: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin'; status: 'prod' | 'beta' | 'dev'; }[]`\n\n### Example\n\n```typescript\nimport Postpeer from '@postpeer/node';\n\nconst client = new Postpeer();\n\nconst platforms = await client.platforms.list();\n\nconsole.log(platforms);\n```",
     perLanguage: {
-      http: {
-        example: 'curl https://api.example.com/v1/platforms \\\n    -H "x-access-key: $POSTPEER_API_KEY"',
+      typescript: {
+        method: 'client.platforms.list',
+        example:
+          "import Postpeer from '@postpeer/node';\n\nconst client = new Postpeer({\n  apiKey: process.env['POSTPEER_API_KEY'], // This is the default and can be omitted\n});\n\nconst platforms = await client.platforms.list();\n\nconsole.log(platforms.platforms);",
       },
       python: {
         method: 'platforms.list',
         example:
           'import os\nfrom postpeer import Postpeer\n\nclient = Postpeer(\n    api_key=os.environ.get("POSTPEER_API_KEY"),  # This is the default and can be omitted\n)\nplatforms = client.platforms.list()\nprint(platforms.platforms)',
       },
-      typescript: {
-        method: 'client.platforms.list',
-        example:
-          "import Postpeer from '@postpeer/node';\n\nconst client = new Postpeer({\n  apiKey: process.env['POSTPEER_API_KEY'], // This is the default and can be omitted\n});\n\nconst platforms = await client.platforms.list();\n\nconsole.log(platforms.platforms);",
+      http: {
+        example: 'curl https://api.example.com/v1/platforms \\\n    -H "x-access-key: $POSTPEER_API_KEY"',
       },
     },
   },
@@ -243,19 +243,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## create\n\n`client.posts.create(content: string, platforms: { accountId: string; platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin'; platformSpecificData?: object; }[], mediaItems?: { type: 'image' | 'video' | 'gif'; url: string; thumbnail?: string; }[], publishNow?: boolean, scheduledFor?: string, timezone?: string): { platforms: object[]; postId: string; status: status; success: boolean; scheduledFor?: string; }`\n\n**post** `/v1/posts/`\n\nPublish a post to one or more social media platforms\n\n### Parameters\n\n- `content: string`\n  Post text body\n\n- `platforms: { accountId: string; platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin'; platformSpecificData?: object; }[]`\n  Target platform accounts to publish to\n\n- `mediaItems?: { type: 'image' | 'video' | 'gif'; url: string; thumbnail?: string; }[]`\n  Media attachments (images, videos, GIFs)\n\n- `publishNow?: boolean`\n  Publish immediately. Required when scheduledFor is omitted.\n\n- `scheduledFor?: string`\n  ISO 8601 datetime to schedule the post for future publishing\n\n- `timezone?: string`\n  IANA timezone for the scheduled time (e.g. America/New_York). Defaults to UTC.\n\n### Returns\n\n- `{ platforms: { platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin'; success: boolean; error?: string; platformPostUrl?: string; }[]; postId: string; status: 'draft' | 'pending' | 'scheduled' | 'publishing' | 'published' | 'failed' | 'partial'; success: boolean; scheduledFor?: string; }`\n\n  - `platforms: { platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin'; success: boolean; error?: string; platformPostUrl?: string; }[]`\n  - `postId: string`\n  - `status: 'draft' | 'pending' | 'scheduled' | 'publishing' | 'published' | 'failed' | 'partial'`\n  - `success: boolean`\n  - `scheduledFor?: string`\n\n### Example\n\n```typescript\nimport Postpeer from '@postpeer/node';\n\nconst client = new Postpeer();\n\nconst post = await client.posts.create({ content: 'Hello world!', platforms: [{ accountId: '<your-account-id>', platform: 'twitter' }] });\n\nconsole.log(post);\n```",
     perLanguage: {
-      http: {
+      typescript: {
+        method: 'client.posts.create',
         example:
-          'curl https://api.example.com/v1/posts/ \\\n    -H \'Content-Type: application/json\' \\\n    -H "x-access-key: $POSTPEER_API_KEY" \\\n    -d \'{\n          "content": "Hello world!",\n          "platforms": [\n            {\n              "accountId": "<your-account-id>",\n              "platform": "twitter"\n            }\n          ]\n        }\'',
+          "import Postpeer from '@postpeer/node';\n\nconst client = new Postpeer({\n  apiKey: process.env['POSTPEER_API_KEY'], // This is the default and can be omitted\n});\n\nconst post = await client.posts.create({\n  content: 'Hello world!',\n  platforms: [{ platform: 'twitter', accountId: '<your-account-id>' }],\n  publishNow: true,\n});\n\nconsole.log(post.platforms);",
       },
       python: {
         method: 'posts.create',
         example:
           'import os\nfrom postpeer import Postpeer\n\nclient = Postpeer(\n    api_key=os.environ.get("POSTPEER_API_KEY"),  # This is the default and can be omitted\n)\npost = client.posts.create(\n    content="Hello world!",\n    platforms=[{\n        "platform": "twitter",\n        "account_id": "<your-account-id>",\n    }],\n    publish_now=True,\n)\nprint(post.platforms)',
       },
-      typescript: {
-        method: 'client.posts.create',
+      http: {
         example:
-          "import Postpeer from '@postpeer/node';\n\nconst client = new Postpeer({\n  apiKey: process.env['POSTPEER_API_KEY'], // This is the default and can be omitted\n});\n\nconst post = await client.posts.create({\n  content: 'Hello world!',\n  platforms: [{ platform: 'twitter', accountId: '<your-account-id>' }],\n  publishNow: true,\n});\n\nconsole.log(post.platforms);",
+          'curl https://api.example.com/v1/posts/ \\\n    -H \'Content-Type: application/json\' \\\n    -H "x-access-key: $POSTPEER_API_KEY" \\\n    -d \'{\n          "content": "Hello world!",\n          "platforms": [\n            {\n              "accountId": "<your-account-id>",\n              "platform": "twitter"\n            }\n          ]\n        }\'',
       },
     },
   },
@@ -284,18 +284,18 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## list\n\n`client.posts.list(createdAfter?: string, createdBefore?: string, limit?: number, offset?: number, platform?: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin'[], scheduledAfter?: string, scheduledBefore?: string, sort?: 'asc' | 'desc', status?: 'draft' | 'pending' | 'scheduled' | 'publishing' | 'published' | 'failed' | 'partial'): { posts: post_summary[]; success: boolean; total: number; }`\n\n**get** `/v1/posts/`\n\nReturns a paginated list of posts. Filter by status, platform (OR logic), and date ranges. Published posts include platformPostUrl per platform.\n\n### Parameters\n\n- `createdAfter?: string`\n  ISO 8601 lower bound on createdAt\n\n- `createdBefore?: string`\n  ISO 8601 upper bound on createdAt\n\n- `limit?: number`\n  Page size (max 100)\n\n- `offset?: number`\n  Number of posts to skip\n\n- `platform?: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin'[]`\n  Filter by platform (repeatable — OR logic)\n\n- `scheduledAfter?: string`\n  ISO 8601 lower bound on scheduledFor\n\n- `scheduledBefore?: string`\n  ISO 8601 upper bound on scheduledFor\n\n- `sort?: 'asc' | 'desc'`\n  Sort direction by createdAt\n\n- `status?: 'draft' | 'pending' | 'scheduled' | 'publishing' | 'published' | 'failed' | 'partial'`\n\n### Returns\n\n- `{ posts: { content: string; createdAt: string; crosspostingEnabled: boolean; mediaItems: object[]; platforms: object[]; postId: string; rawRequestBody: object; scheduledFor: string; status: status; timezone: string; updatedAt: string; }[]; success: boolean; total: number; }`\n\n  - `posts: { content: string; createdAt: string; crosspostingEnabled: boolean; mediaItems: { filename: string; mimeType: string; size: number; type: 'image' | 'video' | 'gif'; url: string; }[]; platforms: { errorMessage: string; platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin'; platformPostId: string; platformPostUrl: string; publishedAt: string; status: 'draft' | 'pending' | 'scheduled' | 'publishing' | 'published' | 'failed' | 'partial'; }[]; postId: string; rawRequestBody: object; scheduledFor: string; status: 'draft' | 'pending' | 'scheduled' | 'publishing' | 'published' | 'failed' | 'partial'; timezone: string; updatedAt: string; }[]`\n  - `success: boolean`\n  - `total: number`\n\n### Example\n\n```typescript\nimport Postpeer from '@postpeer/node';\n\nconst client = new Postpeer();\n\nconst posts = await client.posts.list();\n\nconsole.log(posts);\n```",
     perLanguage: {
-      http: {
-        example: 'curl https://api.example.com/v1/posts/ \\\n    -H "x-access-key: $POSTPEER_API_KEY"',
+      typescript: {
+        method: 'client.posts.list',
+        example:
+          "import Postpeer from '@postpeer/node';\n\nconst client = new Postpeer({\n  apiKey: process.env['POSTPEER_API_KEY'], // This is the default and can be omitted\n});\n\nconst posts = await client.posts.list();\n\nconsole.log(posts.posts);",
       },
       python: {
         method: 'posts.list',
         example:
           'import os\nfrom postpeer import Postpeer\n\nclient = Postpeer(\n    api_key=os.environ.get("POSTPEER_API_KEY"),  # This is the default and can be omitted\n)\nposts = client.posts.list()\nprint(posts.posts)',
       },
-      typescript: {
-        method: 'client.posts.list',
-        example:
-          "import Postpeer from '@postpeer/node';\n\nconst client = new Postpeer({\n  apiKey: process.env['POSTPEER_API_KEY'], // This is the default and can be omitted\n});\n\nconst posts = await client.posts.list();\n\nconsole.log(posts.posts);",
+      http: {
+        example: 'curl https://api.example.com/v1/posts/ \\\n    -H "x-access-key: $POSTPEER_API_KEY"',
       },
     },
   },
@@ -313,19 +313,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## retrieve\n\n`client.posts.retrieve(postId: string): { post: post_summary; success: boolean; }`\n\n**get** `/v1/posts/{postId}`\n\nGet a single post by ID\n\n### Parameters\n\n- `postId: string`\n\n### Returns\n\n- `{ post: { content: string; createdAt: string; crosspostingEnabled: boolean; mediaItems: object[]; platforms: object[]; postId: string; rawRequestBody: object; scheduledFor: string; status: status; timezone: string; updatedAt: string; }; success: boolean; }`\n\n  - `post: { content: string; createdAt: string; crosspostingEnabled: boolean; mediaItems: { filename: string; mimeType: string; size: number; type: 'image' | 'video' | 'gif'; url: string; }[]; platforms: { errorMessage: string; platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin'; platformPostId: string; platformPostUrl: string; publishedAt: string; status: 'draft' | 'pending' | 'scheduled' | 'publishing' | 'published' | 'failed' | 'partial'; }[]; postId: string; rawRequestBody: object; scheduledFor: string; status: 'draft' | 'pending' | 'scheduled' | 'publishing' | 'published' | 'failed' | 'partial'; timezone: string; updatedAt: string; }`\n  - `success: boolean`\n\n### Example\n\n```typescript\nimport Postpeer from '@postpeer/node';\n\nconst client = new Postpeer();\n\nconst post = await client.posts.retrieve('postId');\n\nconsole.log(post);\n```",
     perLanguage: {
-      http: {
+      typescript: {
+        method: 'client.posts.retrieve',
         example:
-          'curl https://api.example.com/v1/posts/$POST_ID \\\n    -H "x-access-key: $POSTPEER_API_KEY"',
+          "import Postpeer from '@postpeer/node';\n\nconst client = new Postpeer({\n  apiKey: process.env['POSTPEER_API_KEY'], // This is the default and can be omitted\n});\n\nconst post = await client.posts.retrieve('postId');\n\nconsole.log(post.post);",
       },
       python: {
         method: 'posts.retrieve',
         example:
           'import os\nfrom postpeer import Postpeer\n\nclient = Postpeer(\n    api_key=os.environ.get("POSTPEER_API_KEY"),  # This is the default and can be omitted\n)\npost = client.posts.retrieve(\n    "postId",\n)\nprint(post.post)',
       },
-      typescript: {
-        method: 'client.posts.retrieve',
+      http: {
         example:
-          "import Postpeer from '@postpeer/node';\n\nconst client = new Postpeer({\n  apiKey: process.env['POSTPEER_API_KEY'], // This is the default and can be omitted\n});\n\nconst post = await client.posts.retrieve('postId');\n\nconsole.log(post.post);",
+          'curl https://api.example.com/v1/posts/$POST_ID \\\n    -H "x-access-key: $POSTPEER_API_KEY"',
       },
     },
   },
@@ -342,19 +342,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## delete\n\n`client.posts.delete(postId: string): { success: boolean; }`\n\n**delete** `/v1/posts/{postId}`\n\nDelete a post by ID\n\n### Parameters\n\n- `postId: string`\n\n### Returns\n\n- `{ success: boolean; }`\n\n  - `success: boolean`\n\n### Example\n\n```typescript\nimport Postpeer from '@postpeer/node';\n\nconst client = new Postpeer();\n\nconst post = await client.posts.delete('postId');\n\nconsole.log(post);\n```",
     perLanguage: {
-      http: {
+      typescript: {
+        method: 'client.posts.delete',
         example:
-          'curl https://api.example.com/v1/posts/$POST_ID \\\n    -X DELETE \\\n    -H "x-access-key: $POSTPEER_API_KEY"',
+          "import Postpeer from '@postpeer/node';\n\nconst client = new Postpeer({\n  apiKey: process.env['POSTPEER_API_KEY'], // This is the default and can be omitted\n});\n\nconst post = await client.posts.delete('postId');\n\nconsole.log(post.success);",
       },
       python: {
         method: 'posts.delete',
         example:
           'import os\nfrom postpeer import Postpeer\n\nclient = Postpeer(\n    api_key=os.environ.get("POSTPEER_API_KEY"),  # This is the default and can be omitted\n)\npost = client.posts.delete(\n    "postId",\n)\nprint(post.success)',
       },
-      typescript: {
-        method: 'client.posts.delete',
+      http: {
         example:
-          "import Postpeer from '@postpeer/node';\n\nconst client = new Postpeer({\n  apiKey: process.env['POSTPEER_API_KEY'], // This is the default and can be omitted\n});\n\nconst post = await client.posts.delete('postId');\n\nconsole.log(post.success);",
+          'curl https://api.example.com/v1/posts/$POST_ID \\\n    -X DELETE \\\n    -H "x-access-key: $POSTPEER_API_KEY"',
       },
     },
   },
@@ -371,19 +371,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## list\n\n`client.posts.scheduled.list(): { posts: object[]; success: boolean; }`\n\n**get** `/v1/posts/scheduled/`\n\nList all scheduled posts\n\n### Returns\n\n- `{ posts: { content: string; createdAt: string; platforms: { platform: string; status: string; }[]; postId: string; scheduledFor: string; timezone: string; mediaItems?: { type: 'image' | 'video' | 'gif'; url: string; thumbnail?: string; }[]; }[]; success: boolean; }`\n\n  - `posts: { content: string; createdAt: string; platforms: { platform: string; status: string; }[]; postId: string; scheduledFor: string; timezone: string; mediaItems?: { type: 'image' | 'video' | 'gif'; url: string; thumbnail?: string; }[]; }[]`\n  - `success: boolean`\n\n### Example\n\n```typescript\nimport Postpeer from '@postpeer/node';\n\nconst client = new Postpeer();\n\nconst scheduleds = await client.posts.scheduled.list();\n\nconsole.log(scheduleds);\n```",
     perLanguage: {
-      http: {
+      typescript: {
+        method: 'client.posts.scheduled.list',
         example:
-          'curl https://api.example.com/v1/posts/scheduled/ \\\n    -H "x-access-key: $POSTPEER_API_KEY"',
+          "import Postpeer from '@postpeer/node';\n\nconst client = new Postpeer({\n  apiKey: process.env['POSTPEER_API_KEY'], // This is the default and can be omitted\n});\n\nconst scheduleds = await client.posts.scheduled.list();\n\nconsole.log(scheduleds.posts);",
       },
       python: {
         method: 'posts.scheduled.list',
         example:
           'import os\nfrom postpeer import Postpeer\n\nclient = Postpeer(\n    api_key=os.environ.get("POSTPEER_API_KEY"),  # This is the default and can be omitted\n)\nscheduleds = client.posts.scheduled.list()\nprint(scheduleds.posts)',
       },
-      typescript: {
-        method: 'client.posts.scheduled.list',
+      http: {
         example:
-          "import Postpeer from '@postpeer/node';\n\nconst client = new Postpeer({\n  apiKey: process.env['POSTPEER_API_KEY'], // This is the default and can be omitted\n});\n\nconst scheduleds = await client.posts.scheduled.list();\n\nconsole.log(scheduleds.posts);",
+          'curl https://api.example.com/v1/posts/scheduled/ \\\n    -H "x-access-key: $POSTPEER_API_KEY"',
       },
     },
   },
@@ -400,19 +400,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## cancel\n\n`client.posts.scheduled.cancel(postId: string): { message: string; success: boolean; }`\n\n**delete** `/v1/posts/scheduled/{postId}`\n\nCancel a scheduled post (moves it back to draft)\n\n### Parameters\n\n- `postId: string`\n\n### Returns\n\n- `{ message: string; success: boolean; }`\n\n  - `message: string`\n  - `success: boolean`\n\n### Example\n\n```typescript\nimport Postpeer from '@postpeer/node';\n\nconst client = new Postpeer();\n\nconst response = await client.posts.scheduled.cancel('postId');\n\nconsole.log(response);\n```",
     perLanguage: {
-      http: {
+      typescript: {
+        method: 'client.posts.scheduled.cancel',
         example:
-          'curl https://api.example.com/v1/posts/scheduled/$POST_ID \\\n    -X DELETE \\\n    -H "x-access-key: $POSTPEER_API_KEY"',
+          "import Postpeer from '@postpeer/node';\n\nconst client = new Postpeer({\n  apiKey: process.env['POSTPEER_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.posts.scheduled.cancel('postId');\n\nconsole.log(response.message);",
       },
       python: {
         method: 'posts.scheduled.cancel',
         example:
           'import os\nfrom postpeer import Postpeer\n\nclient = Postpeer(\n    api_key=os.environ.get("POSTPEER_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.posts.scheduled.cancel(\n    "postId",\n)\nprint(response.message)',
       },
-      typescript: {
-        method: 'client.posts.scheduled.cancel',
+      http: {
         example:
-          "import Postpeer from '@postpeer/node';\n\nconst client = new Postpeer({\n  apiKey: process.env['POSTPEER_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.posts.scheduled.cancel('postId');\n\nconsole.log(response.message);",
+          'curl https://api.example.com/v1/posts/scheduled/$POST_ID \\\n    -X DELETE \\\n    -H "x-access-key: $POSTPEER_API_KEY"',
       },
     },
   },
@@ -429,19 +429,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## reschedule\n\n`client.posts.scheduled.reschedule(postId: string, scheduledFor: string, timezone?: string): { message: string; scheduledFor: string; success: boolean; }`\n\n**patch** `/v1/posts/scheduled/{postId}`\n\nReschedule a post to a new time\n\n### Parameters\n\n- `postId: string`\n\n- `scheduledFor: string`\n  New ISO 8601 datetime to schedule the post\n\n- `timezone?: string`\n  IANA timezone\n\n### Returns\n\n- `{ message: string; scheduledFor: string; success: boolean; }`\n\n  - `message: string`\n  - `scheduledFor: string`\n  - `success: boolean`\n\n### Example\n\n```typescript\nimport Postpeer from '@postpeer/node';\n\nconst client = new Postpeer();\n\nconst response = await client.posts.scheduled.reschedule('postId', { scheduledFor: '2019-12-27T18:11:19.117Z' });\n\nconsole.log(response);\n```",
     perLanguage: {
-      http: {
+      typescript: {
+        method: 'client.posts.scheduled.reschedule',
         example:
-          'curl https://api.example.com/v1/posts/scheduled/$POST_ID \\\n    -X PATCH \\\n    -H \'Content-Type: application/json\' \\\n    -H "x-access-key: $POSTPEER_API_KEY" \\\n    -d \'{\n          "scheduledFor": "2019-12-27T18:11:19.117Z"\n        }\'',
+          "import Postpeer from '@postpeer/node';\n\nconst client = new Postpeer({\n  apiKey: process.env['POSTPEER_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.posts.scheduled.reschedule('postId', {\n  scheduledFor: '2019-12-27T18:11:19.117Z',\n});\n\nconsole.log(response.message);",
       },
       python: {
         method: 'posts.scheduled.reschedule',
         example:
           'import os\nfrom datetime import datetime\nfrom postpeer import Postpeer\n\nclient = Postpeer(\n    api_key=os.environ.get("POSTPEER_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.posts.scheduled.reschedule(\n    post_id="postId",\n    scheduled_for=datetime.fromisoformat("2019-12-27T18:11:19.117"),\n)\nprint(response.message)',
       },
-      typescript: {
-        method: 'client.posts.scheduled.reschedule',
+      http: {
         example:
-          "import Postpeer from '@postpeer/node';\n\nconst client = new Postpeer({\n  apiKey: process.env['POSTPEER_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.posts.scheduled.reschedule('postId', {\n  scheduledFor: '2019-12-27T18:11:19.117Z',\n});\n\nconsole.log(response.message);",
+          'curl https://api.example.com/v1/posts/scheduled/$POST_ID \\\n    -X PATCH \\\n    -H \'Content-Type: application/json\' \\\n    -H "x-access-key: $POSTPEER_API_KEY" \\\n    -d \'{\n          "scheduledFor": "2019-12-27T18:11:19.117Z"\n        }\'',
       },
     },
   },
@@ -458,19 +458,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## upload\n\n`client.media.upload(filename: string, mimeType: string): { data: object; success: boolean; }`\n\n**post** `/v1/media/upload`\n\nGet a presigned S3 URL to upload a media file\n\n### Parameters\n\n- `filename: string`\n\n- `mimeType: string`\n\n### Returns\n\n- `{ data: { publicUrl: string; uploadUrl: string; }; success: boolean; }`\n\n  - `data: { publicUrl: string; uploadUrl: string; }`\n  - `success: boolean`\n\n### Example\n\n```typescript\nimport Postpeer from '@postpeer/node';\n\nconst client = new Postpeer();\n\nconst response = await client.media.upload({ filename: 'x', mimeType: 'x' });\n\nconsole.log(response);\n```",
     perLanguage: {
-      http: {
+      typescript: {
+        method: 'client.media.upload',
         example:
-          'curl https://api.example.com/v1/media/upload \\\n    -H \'Content-Type: application/json\' \\\n    -H "x-access-key: $POSTPEER_API_KEY" \\\n    -d \'{\n          "filename": "x",\n          "mimeType": "x"\n        }\'',
+          "import Postpeer from '@postpeer/node';\n\nconst client = new Postpeer({\n  apiKey: process.env['POSTPEER_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.media.upload({ filename: 'x', mimeType: 'x' });\n\nconsole.log(response.data);",
       },
       python: {
         method: 'media.upload',
         example:
           'import os\nfrom postpeer import Postpeer\n\nclient = Postpeer(\n    api_key=os.environ.get("POSTPEER_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.media.upload(\n    filename="x",\n    mime_type="x",\n)\nprint(response.data)',
       },
-      typescript: {
-        method: 'client.media.upload',
+      http: {
         example:
-          "import Postpeer from '@postpeer/node';\n\nconst client = new Postpeer({\n  apiKey: process.env['POSTPEER_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.media.upload({ filename: 'x', mimeType: 'x' });\n\nconsole.log(response.data);",
+          'curl https://api.example.com/v1/media/upload \\\n    -H \'Content-Type: application/json\' \\\n    -H "x-access-key: $POSTPEER_API_KEY" \\\n    -d \'{\n          "filename": "x",\n          "mimeType": "x"\n        }\'',
       },
     },
   },
