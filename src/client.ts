@@ -21,7 +21,7 @@ import { Health, HealthCheckResponse, HealthVerifyAccessKeyResponse } from './re
 import { Media, MediaUploadParams, MediaUploadResponse } from './resources/media';
 import { PlatformListResponse, Platforms } from './resources/platforms';
 import { Connect, ConnectGetOAuthURLParams, ConnectGetOAuthURLResponse } from './resources/connect/connect';
-import { PostCreateParams, PostCreateResponse, PostDeleteResponse, PostListParams, PostListResponse, PostRetrieveResponse, PostSummary, Posts, Status } from './resources/posts/posts';
+import { PostCreateParams, PostCreateResponse, PostDeleteResponse, PostListParams, PostListResponse, PostRetrieveResponse, Posts, Status } from './resources/posts/posts';
 import { type Fetch } from './internal/builtin-types';
 import { HeadersLike, NullableHeaders, buildHeaders } from './internal/headers';
 import { FinalRequestOptions, RequestOptions } from './internal/request-options';
@@ -671,7 +671,6 @@ export {
 
 export {
   Posts as Posts,
-  type PostSummary as PostSummary,
   type Status as Status,
   type PostCreateResponse as PostCreateResponse,
   type PostRetrieveResponse as PostRetrieveResponse,

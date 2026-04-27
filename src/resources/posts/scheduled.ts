@@ -88,15 +88,9 @@ export namespace ScheduledListResponse {
 
   export namespace Post {
     export interface Platform {
-      /**
-       * Platform name (twitter, instagram, youtube)
-       */
-      platform: string;
+      platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin';
 
-      /**
-       * Current status of this platform target
-       */
-      status: string;
+      status: 'draft' | 'pending' | 'scheduled' | 'publishing' | 'published' | 'failed' | 'partial';
     }
 
     export interface MediaItem {

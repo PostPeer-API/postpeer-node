@@ -1,7 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../core/resource';
-import * as PostsAPI from './posts';
 import * as ScheduledAPI from './scheduled';
 import { Scheduled, ScheduledCancelResponse, ScheduledListResponse, ScheduledRescheduleParams, ScheduledRescheduleResponse } from './scheduled';
 import { APIPromise } from '../../core/api-promise';
@@ -67,67 +66,6 @@ export class Posts extends APIResource {
   }
 }
 
-export interface PostSummary {
-  content: string;
-
-  createdAt: string;
-
-  crosspostingEnabled: boolean;
-
-  mediaItems: Array<PostSummary.MediaItem>;
-
-  platforms: Array<PostSummary.Platform>;
-
-  /**
-   * MongoDB ObjectId of the Post document
-   */
-  postId: string;
-
-  rawRequestBody: { [key: string]: unknown };
-
-  /**
-   * ISO 8601 scheduled datetime
-   */
-  scheduledFor: string | null;
-
-  status: Status;
-
-  timezone: string;
-
-  updatedAt: string;
-}
-
-export namespace PostSummary {
-  export interface MediaItem {
-    filename: string;
-
-    mimeType: string;
-
-    size: number;
-
-    type: 'image' | 'video' | 'gif';
-
-    url: string;
-  }
-
-  export interface Platform {
-    errorMessage: string | null;
-
-    platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin';
-
-    platformPostId: string | null;
-
-    /**
-     * Direct URL to the published post
-     */
-    platformPostUrl: string | null;
-
-    publishedAt: string | null;
-
-    status: PostsAPI.Status;
-  }
-}
-
 export type Status = 'draft' | 'pending' | 'scheduled' | 'publishing' | 'published' | 'failed' | 'partial'
 
 export interface PostCreateResponse {
@@ -138,7 +76,7 @@ export interface PostCreateResponse {
    */
   postId: string;
 
-  status: Status;
+  status: 'draft' | 'pending' | 'scheduled' | 'publishing' | 'published' | 'failed' | 'partial';
 
   /**
    * false only when every platform failed
@@ -170,13 +108,76 @@ export namespace PostCreateResponse {
 }
 
 export interface PostRetrieveResponse {
-  post: PostSummary;
+  post: PostRetrieveResponse.Post;
 
   success: boolean;
 }
 
+export namespace PostRetrieveResponse {
+  export interface Post {
+    content: string;
+
+    createdAt: string;
+
+    crosspostingEnabled: boolean;
+
+    mediaItems: Array<Post.MediaItem>;
+
+    platforms: Array<Post.Platform>;
+
+    /**
+     * MongoDB ObjectId of the Post document
+     */
+    postId: string;
+
+    rawRequestBody: { [key: string]: unknown };
+
+    /**
+     * ISO 8601 scheduled datetime
+     */
+    scheduledFor: string | null;
+
+    status: 'draft' | 'pending' | 'scheduled' | 'publishing' | 'published' | 'failed' | 'partial';
+
+    timezone: string;
+
+    updatedAt: string;
+  }
+
+  export namespace Post {
+    export interface MediaItem {
+      filename: string;
+
+      mimeType: string;
+
+      size: number;
+
+      type: 'image' | 'video' | 'gif';
+
+      url: string;
+    }
+
+    export interface Platform {
+      errorMessage: string | null;
+
+      platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin';
+
+      platformPostId: string | null;
+
+      /**
+       * Direct URL to the published post
+       */
+      platformPostUrl: string | null;
+
+      publishedAt: string | null;
+
+      status: 'draft' | 'pending' | 'scheduled' | 'publishing' | 'published' | 'failed' | 'partial';
+    }
+  }
+}
+
 export interface PostListResponse {
-  posts: Array<PostSummary>;
+  posts: Array<PostListResponse.Post>;
 
   success: boolean;
 
@@ -184,6 +185,69 @@ export interface PostListResponse {
    * Total matched posts across all pages
    */
   total: number;
+}
+
+export namespace PostListResponse {
+  export interface Post {
+    content: string;
+
+    createdAt: string;
+
+    crosspostingEnabled: boolean;
+
+    mediaItems: Array<Post.MediaItem>;
+
+    platforms: Array<Post.Platform>;
+
+    /**
+     * MongoDB ObjectId of the Post document
+     */
+    postId: string;
+
+    rawRequestBody: { [key: string]: unknown };
+
+    /**
+     * ISO 8601 scheduled datetime
+     */
+    scheduledFor: string | null;
+
+    status: 'draft' | 'pending' | 'scheduled' | 'publishing' | 'published' | 'failed' | 'partial';
+
+    timezone: string;
+
+    updatedAt: string;
+  }
+
+  export namespace Post {
+    export interface MediaItem {
+      filename: string;
+
+      mimeType: string;
+
+      size: number;
+
+      type: 'image' | 'video' | 'gif';
+
+      url: string;
+    }
+
+    export interface Platform {
+      errorMessage: string | null;
+
+      platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin';
+
+      platformPostId: string | null;
+
+      /**
+       * Direct URL to the published post
+       */
+      platformPostUrl: string | null;
+
+      publishedAt: string | null;
+
+      status: 'draft' | 'pending' | 'scheduled' | 'publishing' | 'published' | 'failed' | 'partial';
+    }
+  }
 }
 
 export interface PostDeleteResponse {
@@ -288,19 +352,15 @@ export interface PostListParams {
    */
   scheduledBefore?: string;
 
-  /**
-   * Sort direction by createdAt
-   */
   sort?: 'asc' | 'desc';
 
-  status?: Status;
+  status?: 'draft' | 'pending' | 'scheduled' | 'publishing' | 'published' | 'failed' | 'partial';
 }
 
 Posts.Scheduled = Scheduled;
 
 export declare namespace Posts {
   export {
-    type PostSummary as PostSummary,
     type Status as Status,
     type PostCreateResponse as PostCreateResponse,
     type PostRetrieveResponse as PostRetrieveResponse,
