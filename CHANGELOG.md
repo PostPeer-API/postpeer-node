@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.5.0 (2026-04-27)
+
+Full Changelog: [v0.4.0...v0.5.0](https://github.com/PostPeer-API/postpeer-node/compare/v0.4.0...v0.5.0)
+
+### Features
+
+* **api:** api update ([4d62307](https://github.com/PostPeer-API/postpeer-node/commit/4d6230790ddd0f60eb57b8f98b0361cbf16f4904))
+* **api:** api update ([9411834](https://github.com/PostPeer-API/postpeer-node/commit/9411834d9792457de0fc2904e31a8128c21f2c5d))
+
+
+### Chores
+
+* **formatter:** run prettier and eslint separately ([80fe4b5](https://github.com/PostPeer-API/postpeer-node/commit/80fe4b51aabe1b22f5275c2f1c09c360f994f75c))
+* **internal:** more robust bootstrap script ([b581aeb](https://github.com/PostPeer-API/postpeer-node/commit/b581aeb94a851b78096edeee23bea88f491a5f9a))
+* restructure docs search code ([162a5ca](https://github.com/PostPeer-API/postpeer-node/commit/162a5ca3ff9decf80a52a5e8849ab1bd32e84d17))
+
 ## 0.4.0 (2026-04-16)
 
 Full Changelog: [v0.3.1...v0.4.0](https://github.com/PostPeer-API/postpeer-node/compare/v0.3.1...v0.4.0)

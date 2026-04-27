@@ -46,7 +46,6 @@ Methods:
 
 Types:
 
-- <code><a href="./src/resources/posts/posts.ts">PostSummary</a></code>
 - <code><a href="./src/resources/posts/posts.ts">Status</a></code>
 - <code><a href="./src/resources/posts/posts.ts">PostCreateResponse</a></code>
 - <code><a href="./src/resources/posts/posts.ts">PostRetrieveResponse</a></code>
