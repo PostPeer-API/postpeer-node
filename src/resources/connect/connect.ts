@@ -13,7 +13,7 @@ export class Connect extends APIResource {
   /**
    * Get OAuth URL for a platform
    */
-  getOAuthURL(platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin', query: ConnectGetOAuthURLParams | null | undefined = {}, options?: RequestOptions): APIPromise<ConnectGetOAuthURLResponse> {
+  getOAuthURL(platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin' | 'bluesky', query: ConnectGetOAuthURLParams | null | undefined = {}, options?: RequestOptions): APIPromise<ConnectGetOAuthURLResponse> {
     return this._client.get(path`/v1/connect/${platform}`, { query, ...options });
   }
 }

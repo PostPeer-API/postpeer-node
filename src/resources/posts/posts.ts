@@ -91,7 +91,7 @@ export interface PostCreateResponse {
 
 export namespace PostCreateResponse {
   export interface Platform {
-    platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin';
+    platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin' | 'bluesky';
 
     success: boolean;
 
@@ -160,7 +160,7 @@ export namespace PostRetrieveResponse {
     export interface Platform {
       errorMessage: string | null;
 
-      platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin';
+      platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin' | 'bluesky';
 
       platformPostId: string | null;
 
@@ -234,7 +234,7 @@ export namespace PostListResponse {
     export interface Platform {
       errorMessage: string | null;
 
-      platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin';
+      platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin' | 'bluesky';
 
       platformPostId: string | null;
 
@@ -293,7 +293,7 @@ export namespace PostCreateParams {
      */
     accountId: string;
 
-    platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin';
+    platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin' | 'bluesky';
 
     /**
      * Platform-specific options. See TwitterConfigurations, YouTubeConfigurations,
@@ -340,7 +340,7 @@ export interface PostListParams {
   /**
    * Filter by platform (repeatable — OR logic)
    */
-  platform?: Array<'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin'>;
+  platform?: Array<'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin' | 'bluesky'>;
 
   /**
    * ISO 8601 lower bound on scheduledFor

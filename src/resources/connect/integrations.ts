@@ -46,7 +46,7 @@ export namespace IntegrationListResponse {
      */
     imageUrl: string | null;
 
-    platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin';
+    platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin' | 'bluesky';
 
     /**
      * The user ID on the platform, or null if not yet retrieved
