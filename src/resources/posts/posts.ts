@@ -113,6 +113,12 @@ export namespace PostCreateResponse {
      * Direct URL to the published post
      */
     platformPostUrl?: string;
+
+    /**
+     * Warning message when the post published but a non-critical follow-up action
+     * failed
+     */
+    warningMessage?: string;
   }
 }
 
@@ -181,6 +187,8 @@ export namespace PostRetrieveResponse {
       publishedAt: string | null;
 
       status: 'draft' | 'pending' | 'scheduled' | 'publishing' | 'published' | 'failed' | 'partial';
+
+      warningMessage: string | null;
     }
   }
 }
@@ -255,6 +263,8 @@ export namespace PostListResponse {
       publishedAt: string | null;
 
       status: 'draft' | 'pending' | 'scheduled' | 'publishing' | 'published' | 'failed' | 'partial';
+
+      warningMessage: string | null;
     }
   }
 }
