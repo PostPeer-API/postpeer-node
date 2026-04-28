@@ -26,7 +26,5 @@ export namespace PlatformListResponse {
 }
 
 export declare namespace Platforms {
-  export {
-    type PlatformListResponse as PlatformListResponse
-  };
+  export { type PlatformListResponse as PlatformListResponse };
 }

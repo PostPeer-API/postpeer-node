@@ -64,6 +64,6 @@ export interface IntegrationDisconnectResponse {
 export declare namespace Integrations {
   export {
     type IntegrationListResponse as IntegrationListResponse,
-    type IntegrationDisconnectResponse as IntegrationDisconnectResponse
+    type IntegrationDisconnectResponse as IntegrationDisconnectResponse,
   };
 }

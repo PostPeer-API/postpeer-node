@@ -10,9 +10,7 @@ const config: JestConfigWithTsJest = {
     '^postpeer-mcp$': '<rootDir>/src/index.ts',
     '^postpeer-mcp/(.*)$': '<rootDir>/src/$1',
   },
-  modulePathIgnorePatterns: [
-    '<rootDir>/dist/',
-  ],
+  modulePathIgnorePatterns: ['<rootDir>/dist/'],
   testPathIgnorePatterns: ['scripts'],
 };
 
