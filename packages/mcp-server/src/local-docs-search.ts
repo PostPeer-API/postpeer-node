@@ -140,14 +140,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     name: 'list',
     endpoint: '/v1/connect/integrations',
     httpMethod: 'get',
-    summary: 'List all integrations connected to this project',
-    description: 'List all integrations connected to this project',
+    summary: 'List integrations connected to this project',
+    description: 'List integrations connected to this project',
     stainlessPath: '(resource) connect.integrations > (method) list',
     qualified: 'client.connect.integrations.list',
+    params: [
+      'limit?: number;',
+      'page?: number;',
+      "platform?: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin' | 'bluesky';",
+    ],
     response:
-      "{ integrations: { id: string; createdAt: string; displayName: string; imageUrl: string; platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin' | 'bluesky'; platformUserId: string; }[]; success: boolean; }",
+      "{ integrations: { id: string; createdAt: string; displayName: string; imageUrl: string; platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin' | 'bluesky'; platformUserId: string; }[]; limit: number; page: number; success: boolean; total: number; }",
     markdown:
-      "## list\n\n`client.connect.integrations.list(): { integrations: object[]; success: boolean; }`\n\n**get** `/v1/connect/integrations`\n\nList all integrations connected to this project\n\n### Returns\n\n- `{ integrations: { id: string; createdAt: string; displayName: string; imageUrl: string; platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin' | 'bluesky'; platformUserId: string; }[]; success: boolean; }`\n\n  - `integrations: { id: string; createdAt: string; displayName: string; imageUrl: string; platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin' | 'bluesky'; platformUserId: string; }[]`\n  - `success: boolean`\n\n### Example\n\n```typescript\nimport Postpeer from '@postpeer/node';\n\nconst client = new Postpeer();\n\nconst integrations = await client.connect.integrations.list();\n\nconsole.log(integrations);\n```",
+      "## list\n\n`client.connect.integrations.list(limit?: number, page?: number, platform?: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin' | 'bluesky'): { integrations: object[]; limit: number; page: number; success: boolean; total: number; }`\n\n**get** `/v1/connect/integrations`\n\nList integrations connected to this project\n\n### Parameters\n\n- `limit?: number`\n  Page size (1-100)\n\n- `page?: number`\n  Page number\n\n- `platform?: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin' | 'bluesky'`\n\n### Returns\n\n- `{ integrations: { id: string; createdAt: string; displayName: string; imageUrl: string; platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin' | 'bluesky'; platformUserId: string; }[]; limit: number; page: number; success: boolean; total: number; }`\n\n  - `integrations: { id: string; createdAt: string; displayName: string; imageUrl: string; platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin' | 'bluesky'; platformUserId: string; }[]`\n  - `limit: number`\n  - `page: number`\n  - `success: boolean`\n  - `total: number`\n\n### Example\n\n```typescript\nimport Postpeer from '@postpeer/node';\n\nconst client = new Postpeer();\n\nconst integrations = await client.connect.integrations.list();\n\nconsole.log(integrations);\n```",
     perLanguage: {
       typescript: {
         method: 'client.connect.integrations.list',

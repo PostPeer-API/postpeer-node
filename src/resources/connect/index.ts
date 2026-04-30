@@ -5,4 +5,5 @@ export {
   Integrations,
   type IntegrationListResponse,
   type IntegrationDisconnectResponse,
+  type IntegrationListParams,
 } from './integrations';

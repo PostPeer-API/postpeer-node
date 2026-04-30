@@ -21,6 +21,21 @@ describe('resource integrations', () => {
   });
 
   // Mock server tests are disabled
+  test.skip('list: request options and params are passed correctly', async () => {
+    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
+    await expect(
+      client.connect.integrations.list(
+        {
+          limit: 1,
+          page: 1,
+          platform: 'twitter',
+        },
+        { path: '/_stainless_unknown_path' },
+      ),
+    ).rejects.toThrow(Postpeer.NotFoundError);
+  });
+
+  // Mock server tests are disabled
   test.skip('disconnect', async () => {
     const responsePromise = client.connect.integrations.disconnect('id');
     const rawResponse = await responsePromise.asResponse();
