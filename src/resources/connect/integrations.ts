@@ -7,10 +7,13 @@ import { path } from '../../internal/utils/path';
 
 export class Integrations extends APIResource {
   /**
-   * List all integrations connected to this project
+   * List integrations connected to this project
    */
-  list(options?: RequestOptions): APIPromise<IntegrationListResponse> {
-    return this._client.get('/v1/connect/integrations', options);
+  list(
+    query: IntegrationListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<IntegrationListResponse> {
+    return this._client.get('/v1/connect/integrations', { query, ...options });
   }
 
   /**
@@ -24,7 +27,16 @@ export class Integrations extends APIResource {
 export interface IntegrationListResponse {
   integrations: Array<IntegrationListResponse.Integration>;
 
+  limit: number;
+
+  page: number;
+
   success: boolean;
+
+  /**
+   * Total matched integrations across all pages
+   */
+  total: number;
 }
 
 export namespace IntegrationListResponse {
@@ -46,7 +58,7 @@ export namespace IntegrationListResponse {
      */
     imageUrl: string | null;
 
-    platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin';
+    platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin' | 'bluesky';
 
     /**
      * The user ID on the platform, or null if not yet retrieved
@@ -61,9 +73,24 @@ export interface IntegrationDisconnectResponse {
   success: boolean;
 }
 
+export interface IntegrationListParams {
+  /**
+   * Page size (1-100)
+   */
+  limit?: number;
+
+  /**
+   * Page number
+   */
+  page?: number;
+
+  platform?: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin' | 'bluesky';
+}
+
 export declare namespace Integrations {
   export {
     type IntegrationListResponse as IntegrationListResponse,
-    type IntegrationDisconnectResponse as IntegrationDisconnectResponse
+    type IntegrationDisconnectResponse as IntegrationDisconnectResponse,
+    type IntegrationListParams as IntegrationListParams,
   };
 }

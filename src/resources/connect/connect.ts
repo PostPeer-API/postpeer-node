@@ -2,7 +2,12 @@
 
 import { APIResource } from '../../core/resource';
 import * as IntegrationsAPI from './integrations';
-import { IntegrationDisconnectResponse, IntegrationListResponse, Integrations } from './integrations';
+import {
+  IntegrationDisconnectResponse,
+  IntegrationListParams,
+  IntegrationListResponse,
+  Integrations,
+} from './integrations';
 import { APIPromise } from '../../core/api-promise';
 import { RequestOptions } from '../../internal/request-options';
 import { path } from '../../internal/utils/path';
@@ -13,7 +18,11 @@ export class Connect extends APIResource {
   /**
    * Get OAuth URL for a platform
    */
-  getOAuthURL(platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin', query: ConnectGetOAuthURLParams | null | undefined = {}, options?: RequestOptions): APIPromise<ConnectGetOAuthURLResponse> {
+  getOAuthURL(
+    platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin' | 'bluesky',
+    query: ConnectGetOAuthURLParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<ConnectGetOAuthURLResponse> {
     return this._client.get(path`/v1/connect/${platform}`, { query, ...options });
   }
 }
@@ -34,12 +43,13 @@ Connect.Integrations = Integrations;
 export declare namespace Connect {
   export {
     type ConnectGetOAuthURLResponse as ConnectGetOAuthURLResponse,
-    type ConnectGetOAuthURLParams as ConnectGetOAuthURLParams
+    type ConnectGetOAuthURLParams as ConnectGetOAuthURLParams,
   };
 
   export {
     Integrations as Integrations,
     type IntegrationListResponse as IntegrationListResponse,
-    type IntegrationDisconnectResponse as IntegrationDisconnectResponse
+    type IntegrationDisconnectResponse as IntegrationDisconnectResponse,
+    type IntegrationListParams as IntegrationListParams,
   };
 }

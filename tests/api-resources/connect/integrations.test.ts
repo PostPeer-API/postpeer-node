@@ -2,7 +2,10 @@
 
 import Postpeer from '@postpeer/node';
 
-const client = new Postpeer({ apiKey: 'My API Key', baseURL: process.env["TEST_API_BASE_URL"] ?? 'http://127.0.0.1:4010' });
+const client = new Postpeer({
+  apiKey: 'My API Key',
+  baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
+});
 
 describe('resource integrations', () => {
   // Mock server tests are disabled
@@ -15,6 +18,21 @@ describe('resource integrations', () => {
     const dataAndResponse = await responsePromise.withResponse();
     expect(dataAndResponse.data).toBe(response);
     expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  // Mock server tests are disabled
+  test.skip('list: request options and params are passed correctly', async () => {
+    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
+    await expect(
+      client.connect.integrations.list(
+        {
+          limit: 1,
+          page: 1,
+          platform: 'twitter',
+        },
+        { path: '/_stainless_unknown_path' },
+      ),
+    ).rejects.toThrow(Postpeer.NotFoundError);
   });
 
   // Mock server tests are disabled

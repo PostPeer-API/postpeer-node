@@ -34,8 +34,5 @@ export interface MediaUploadParams {
 }
 
 export declare namespace Media {
-  export {
-    type MediaUploadResponse as MediaUploadResponse,
-    type MediaUploadParams as MediaUploadParams
-  };
+  export { type MediaUploadResponse as MediaUploadResponse, type MediaUploadParams as MediaUploadParams };
 }

@@ -2,7 +2,13 @@
 
 import { APIResource } from '../../core/resource';
 import * as ScheduledAPI from './scheduled';
-import { Scheduled, ScheduledCancelResponse, ScheduledListResponse, ScheduledRescheduleParams, ScheduledRescheduleResponse } from './scheduled';
+import {
+  Scheduled,
+  ScheduledCancelResponse,
+  ScheduledListResponse,
+  ScheduledRescheduleParams,
+  ScheduledRescheduleResponse,
+} from './scheduled';
 import { APIPromise } from '../../core/api-promise';
 import { RequestOptions } from '../../internal/request-options';
 import { path } from '../../internal/utils/path';
@@ -49,7 +55,10 @@ export class Posts extends APIResource {
    * const posts = await client.posts.list();
    * ```
    */
-  list(query: PostListParams | null | undefined = {}, options?: RequestOptions): APIPromise<PostListResponse> {
+  list(
+    query: PostListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<PostListResponse> {
     return this._client.get('/v1/posts/', { query, ...options });
   }
 
@@ -66,7 +75,7 @@ export class Posts extends APIResource {
   }
 }
 
-export type Status = 'draft' | 'pending' | 'scheduled' | 'publishing' | 'published' | 'failed' | 'partial'
+export type Status = 'draft' | 'pending' | 'scheduled' | 'publishing' | 'published' | 'failed' | 'partial';
 
 export interface PostCreateResponse {
   platforms: Array<PostCreateResponse.Platform>;
@@ -91,7 +100,7 @@ export interface PostCreateResponse {
 
 export namespace PostCreateResponse {
   export interface Platform {
-    platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin';
+    platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin' | 'bluesky';
 
     success: boolean;
 
@@ -104,6 +113,12 @@ export namespace PostCreateResponse {
      * Direct URL to the published post
      */
     platformPostUrl?: string;
+
+    /**
+     * Warning message when the post published but a non-critical follow-up action
+     * failed
+     */
+    warningMessage?: string;
   }
 }
 
@@ -160,7 +175,7 @@ export namespace PostRetrieveResponse {
     export interface Platform {
       errorMessage: string | null;
 
-      platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin';
+      platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin' | 'bluesky';
 
       platformPostId: string | null;
 
@@ -172,6 +187,8 @@ export namespace PostRetrieveResponse {
       publishedAt: string | null;
 
       status: 'draft' | 'pending' | 'scheduled' | 'publishing' | 'published' | 'failed' | 'partial';
+
+      warningMessage: string | null;
     }
   }
 }
@@ -234,7 +251,7 @@ export namespace PostListResponse {
     export interface Platform {
       errorMessage: string | null;
 
-      platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin';
+      platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin' | 'bluesky';
 
       platformPostId: string | null;
 
@@ -246,6 +263,8 @@ export namespace PostListResponse {
       publishedAt: string | null;
 
       status: 'draft' | 'pending' | 'scheduled' | 'publishing' | 'published' | 'failed' | 'partial';
+
+      warningMessage: string | null;
     }
   }
 }
@@ -293,7 +312,7 @@ export namespace PostCreateParams {
      */
     accountId: string;
 
-    platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin';
+    platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin' | 'bluesky';
 
     /**
      * Platform-specific options. See TwitterConfigurations, YouTubeConfigurations,
@@ -340,7 +359,7 @@ export interface PostListParams {
   /**
    * Filter by platform (repeatable — OR logic)
    */
-  platform?: Array<'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin'>;
+  platform?: Array<'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin' | 'bluesky'>;
 
   /**
    * ISO 8601 lower bound on scheduledFor
@@ -367,7 +386,7 @@ export declare namespace Posts {
     type PostListResponse as PostListResponse,
     type PostDeleteResponse as PostDeleteResponse,
     type PostCreateParams as PostCreateParams,
-    type PostListParams as PostListParams
+    type PostListParams as PostListParams,
   };
 
   export {
@@ -375,6 +394,6 @@ export declare namespace Posts {
     type ScheduledListResponse as ScheduledListResponse,
     type ScheduledCancelResponse as ScheduledCancelResponse,
     type ScheduledRescheduleResponse as ScheduledRescheduleResponse,
-    type ScheduledRescheduleParams as ScheduledRescheduleParams
+    type ScheduledRescheduleParams as ScheduledRescheduleParams,
   };
 }

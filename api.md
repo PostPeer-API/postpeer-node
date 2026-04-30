@@ -29,7 +29,7 @@ Types:
 
 Methods:
 
-- <code title="get /v1/connect/integrations">client.connect.integrations.<a href="./src/resources/connect/integrations.ts">list</a>() -> IntegrationListResponse</code>
+- <code title="get /v1/connect/integrations">client.connect.integrations.<a href="./src/resources/connect/integrations.ts">list</a>({ ...params }) -> IntegrationListResponse</code>
 - <code title="delete /v1/connect/integrations/{id}">client.connect.integrations.<a href="./src/resources/connect/integrations.ts">disconnect</a>(id) -> IntegrationDisconnectResponse</code>
 
 # Platforms
