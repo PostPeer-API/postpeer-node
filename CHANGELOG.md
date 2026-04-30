@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.6.0 (2026-04-30)
+
+Full Changelog: [v0.5.0...v0.6.0](https://github.com/PostPeer-API/postpeer-node/compare/v0.5.0...v0.6.0)
+
+### Features
+
+* **api:** api update ([d2e32a9](https://github.com/PostPeer-API/postpeer-node/commit/d2e32a9b1ed5f1ba0fffc0937262f97945840299))
+* **api:** api update ([7fe25ac](https://github.com/PostPeer-API/postpeer-node/commit/7fe25ac62bd8fff2b4a8595bdf2354247125bee8))
+* **api:** api update ([0f4244a](https://github.com/PostPeer-API/postpeer-node/commit/0f4244a93883c46284d9a3aae68fed3ee3dd470a))
+* **api:** manual updates ([1a587f1](https://github.com/PostPeer-API/postpeer-node/commit/1a587f1d8d28cc22aa7a60065238bf27739a90b2))
+* support setting headers via env ([da2c3df](https://github.com/PostPeer-API/postpeer-node/commit/da2c3df88282d1a007a836853a407271db3fcb43))
+
+
+### Chores
+
+* avoid formatting file that gets changed during releases ([bbec615](https://github.com/PostPeer-API/postpeer-node/commit/bbec6155e6d2255bd46e504ddaf932f84f829763))
+* **format:** run eslint and prettier separately ([6da828b](https://github.com/PostPeer-API/postpeer-node/commit/6da828bb9a28fb72bb3b73e7c582d98369b6b320))
+* **internal:** codegen related update ([a02ee4a](https://github.com/PostPeer-API/postpeer-node/commit/a02ee4a29b99d489770e63d73bf784d1b92e2eb3))
+
 ## 0.5.0 (2026-04-27)
 
 Full Changelog: [v0.4.0...v0.5.0](https://github.com/PostPeer-API/postpeer-node/compare/v0.4.0...v0.5.0)
