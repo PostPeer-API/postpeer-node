@@ -73,7 +73,7 @@ const EMBEDDED_METHODS: MethodEntry[] = [
           'import os\nfrom postpeer import Postpeer\n\nclient = Postpeer(\n    api_key=os.environ.get("POSTPEER_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.health.check()\nprint(response.ok)',
       },
       http: {
-        example: 'curl https://api.example.com/v1/health \\\n    -H "x-access-key: $POSTPEER_API_KEY"',
+        example: 'curl https://api.postpeer.dev/v1/health \\\n    -H "x-access-key: $POSTPEER_API_KEY"',
       },
     },
   },
@@ -100,7 +100,7 @@ const EMBEDDED_METHODS: MethodEntry[] = [
           'import os\nfrom postpeer import Postpeer\n\nclient = Postpeer(\n    api_key=os.environ.get("POSTPEER_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.health.verify_access_key()\nprint(response.ok)',
       },
       http: {
-        example: 'curl https://api.example.com/v1/health/auth \\\n    -H "x-access-key: $POSTPEER_API_KEY"',
+        example: 'curl https://api.postpeer.dev/v1/health/auth \\\n    -H "x-access-key: $POSTPEER_API_KEY"',
       },
     },
   },
@@ -132,7 +132,7 @@ const EMBEDDED_METHODS: MethodEntry[] = [
       },
       http: {
         example:
-          'curl https://api.example.com/v1/connect/$PLATFORM \\\n    -H "x-access-key: $POSTPEER_API_KEY"',
+          'curl https://api.postpeer.dev/v1/connect/$PLATFORM \\\n    -H "x-access-key: $POSTPEER_API_KEY"',
       },
     },
   },
@@ -166,7 +166,7 @@ const EMBEDDED_METHODS: MethodEntry[] = [
       },
       http: {
         example:
-          'curl https://api.example.com/v1/connect/integrations \\\n    -H "x-access-key: $POSTPEER_API_KEY"',
+          'curl https://api.postpeer.dev/v1/connect/integrations \\\n    -H "x-access-key: $POSTPEER_API_KEY"',
       },
     },
   },
@@ -195,7 +195,7 @@ const EMBEDDED_METHODS: MethodEntry[] = [
       },
       http: {
         example:
-          'curl https://api.example.com/v1/connect/integrations/$ID \\\n    -X DELETE \\\n    -H "x-access-key: $POSTPEER_API_KEY"',
+          'curl https://api.postpeer.dev/v1/connect/integrations/$ID \\\n    -X DELETE \\\n    -H "x-access-key: $POSTPEER_API_KEY"',
       },
     },
   },
@@ -223,7 +223,7 @@ const EMBEDDED_METHODS: MethodEntry[] = [
           'import os\nfrom postpeer import Postpeer\n\nclient = Postpeer(\n    api_key=os.environ.get("POSTPEER_API_KEY"),  # This is the default and can be omitted\n)\nplatforms = client.platforms.list()\nprint(platforms.platforms)',
       },
       http: {
-        example: 'curl https://api.example.com/v1/platforms \\\n    -H "x-access-key: $POSTPEER_API_KEY"',
+        example: 'curl https://api.postpeer.dev/v1/platforms \\\n    -H "x-access-key: $POSTPEER_API_KEY"',
       },
     },
   },
@@ -260,7 +260,7 @@ const EMBEDDED_METHODS: MethodEntry[] = [
       },
       http: {
         example:
-          'curl https://api.example.com/v1/posts/ \\\n    -H \'Content-Type: application/json\' \\\n    -H "x-access-key: $POSTPEER_API_KEY" \\\n    -d \'{\n          "content": "Hello world!",\n          "platforms": [\n            {\n              "accountId": "<your-account-id>",\n              "platform": "twitter"\n            }\n          ]\n        }\'',
+          'curl https://api.postpeer.dev/v1/posts/ \\\n    -H \'Content-Type: application/json\' \\\n    -H "x-access-key: $POSTPEER_API_KEY" \\\n    -d \'{\n          "content": "Hello world!",\n          "platforms": [\n            {\n              "accountId": "<your-account-id>",\n              "platform": "twitter"\n            }\n          ]\n        }\'',
       },
     },
   },
@@ -300,7 +300,7 @@ const EMBEDDED_METHODS: MethodEntry[] = [
           'import os\nfrom postpeer import Postpeer\n\nclient = Postpeer(\n    api_key=os.environ.get("POSTPEER_API_KEY"),  # This is the default and can be omitted\n)\nposts = client.posts.list()\nprint(posts.posts)',
       },
       http: {
-        example: 'curl https://api.example.com/v1/posts/ \\\n    -H "x-access-key: $POSTPEER_API_KEY"',
+        example: 'curl https://api.postpeer.dev/v1/posts/ \\\n    -H "x-access-key: $POSTPEER_API_KEY"',
       },
     },
   },
@@ -330,7 +330,7 @@ const EMBEDDED_METHODS: MethodEntry[] = [
       },
       http: {
         example:
-          'curl https://api.example.com/v1/posts/$POST_ID \\\n    -H "x-access-key: $POSTPEER_API_KEY"',
+          'curl https://api.postpeer.dev/v1/posts/$POST_ID \\\n    -H "x-access-key: $POSTPEER_API_KEY"',
       },
     },
   },
@@ -359,7 +359,7 @@ const EMBEDDED_METHODS: MethodEntry[] = [
       },
       http: {
         example:
-          'curl https://api.example.com/v1/posts/$POST_ID \\\n    -X DELETE \\\n    -H "x-access-key: $POSTPEER_API_KEY"',
+          'curl https://api.postpeer.dev/v1/posts/$POST_ID \\\n    -X DELETE \\\n    -H "x-access-key: $POSTPEER_API_KEY"',
       },
     },
   },
@@ -388,7 +388,7 @@ const EMBEDDED_METHODS: MethodEntry[] = [
       },
       http: {
         example:
-          'curl https://api.example.com/v1/posts/scheduled/ \\\n    -H "x-access-key: $POSTPEER_API_KEY"',
+          'curl https://api.postpeer.dev/v1/posts/scheduled/ \\\n    -H "x-access-key: $POSTPEER_API_KEY"',
       },
     },
   },
@@ -417,7 +417,7 @@ const EMBEDDED_METHODS: MethodEntry[] = [
       },
       http: {
         example:
-          'curl https://api.example.com/v1/posts/scheduled/$POST_ID \\\n    -X DELETE \\\n    -H "x-access-key: $POSTPEER_API_KEY"',
+          'curl https://api.postpeer.dev/v1/posts/scheduled/$POST_ID \\\n    -X DELETE \\\n    -H "x-access-key: $POSTPEER_API_KEY"',
       },
     },
   },
@@ -446,7 +446,7 @@ const EMBEDDED_METHODS: MethodEntry[] = [
       },
       http: {
         example:
-          'curl https://api.example.com/v1/posts/scheduled/$POST_ID \\\n    -X PATCH \\\n    -H \'Content-Type: application/json\' \\\n    -H "x-access-key: $POSTPEER_API_KEY" \\\n    -d \'{\n          "scheduledFor": "2019-12-27T18:11:19.117Z"\n        }\'',
+          'curl https://api.postpeer.dev/v1/posts/scheduled/$POST_ID \\\n    -X PATCH \\\n    -H \'Content-Type: application/json\' \\\n    -H "x-access-key: $POSTPEER_API_KEY" \\\n    -d \'{\n          "scheduledFor": "2019-12-27T18:11:19.117Z"\n        }\'',
       },
     },
   },
@@ -475,7 +475,7 @@ const EMBEDDED_METHODS: MethodEntry[] = [
       },
       http: {
         example:
-          'curl https://api.example.com/v1/media/upload \\\n    -H \'Content-Type: application/json\' \\\n    -H "x-access-key: $POSTPEER_API_KEY" \\\n    -d \'{\n          "filename": "x",\n          "mimeType": "x"\n        }\'',
+          'curl https://api.postpeer.dev/v1/media/upload \\\n    -H \'Content-Type: application/json\' \\\n    -H "x-access-key: $POSTPEER_API_KEY" \\\n    -d \'{\n          "filename": "x",\n          "mimeType": "x"\n        }\'',
       },
     },
   },

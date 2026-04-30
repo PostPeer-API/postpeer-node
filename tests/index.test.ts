@@ -322,13 +322,13 @@ describe('instantiate client', () => {
     test('empty env variable', () => {
       process.env['POSTPEER_BASE_URL'] = ''; // empty
       const client = new Postpeer({ apiKey: 'My API Key' });
-      expect(client.baseURL).toEqual('https://api.example.com');
+      expect(client.baseURL).toEqual('https://api.postpeer.dev');
     });
 
     test('blank env variable', () => {
       process.env['POSTPEER_BASE_URL'] = '  '; // blank
       const client = new Postpeer({ apiKey: 'My API Key' });
-      expect(client.baseURL).toEqual('https://api.example.com');
+      expect(client.baseURL).toEqual('https://api.postpeer.dev');
     });
 
     test('in request options', () => {
