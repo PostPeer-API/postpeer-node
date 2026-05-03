@@ -33,6 +33,12 @@ export interface ConnectGetOAuthURLResponse {
 
 export interface ConnectGetOAuthURLParams {
   /**
+   * Profile to associate the resulting integration with. Must belong to the same
+   * project. Omit to connect without a profile.
+   */
+  profileId?: string;
+
+  /**
    * URL to redirect to after a successful connection
    */
   redirectUri?: string;

@@ -29,6 +29,7 @@ describe('resource integrations', () => {
           limit: 1,
           page: 1,
           platform: 'twitter',
+          profileId: 'profileId',
         },
         { path: '/_stainless_unknown_path' },
       ),

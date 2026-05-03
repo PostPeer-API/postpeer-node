@@ -64,6 +64,12 @@ export namespace IntegrationListResponse {
      * The user ID on the platform, or null if not yet retrieved
      */
     platformUserId: string | null;
+
+    /**
+     * Profile this integration belongs to, or null if it was connected without a
+     * profile
+     */
+    profileId: string | null;
   }
 }
 
@@ -85,6 +91,12 @@ export interface IntegrationListParams {
   page?: number;
 
   platform?: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin' | 'bluesky';
+
+  /**
+   * Filter to integrations belonging to this profile. Pass "null" (literal string)
+   * to filter to integrations with no profile.
+   */
+  profileId?: string;
 }
 
 export declare namespace Integrations {
