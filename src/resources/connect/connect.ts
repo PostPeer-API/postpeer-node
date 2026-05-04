@@ -19,7 +19,15 @@ export class Connect extends APIResource {
    * Get OAuth URL for a platform
    */
   getOAuthURL(
-    platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin' | 'bluesky',
+    platform:
+      | 'twitter'
+      | 'instagram'
+      | 'youtube'
+      | 'tiktok'
+      | 'pinterest'
+      | 'linkedin'
+      | 'bluesky'
+      | 'facebook',
     query: ConnectGetOAuthURLParams | null | undefined = {},
     options?: RequestOptions,
   ): APIPromise<ConnectGetOAuthURLResponse> {

@@ -100,7 +100,15 @@ export interface PostCreateResponse {
 
 export namespace PostCreateResponse {
   export interface Platform {
-    platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin' | 'bluesky';
+    platform:
+      | 'twitter'
+      | 'instagram'
+      | 'youtube'
+      | 'tiktok'
+      | 'pinterest'
+      | 'linkedin'
+      | 'bluesky'
+      | 'facebook';
 
     success: boolean;
 
@@ -175,7 +183,15 @@ export namespace PostRetrieveResponse {
     export interface Platform {
       errorMessage: string | null;
 
-      platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin' | 'bluesky';
+      platform:
+        | 'twitter'
+        | 'instagram'
+        | 'youtube'
+        | 'tiktok'
+        | 'pinterest'
+        | 'linkedin'
+        | 'bluesky'
+        | 'facebook';
 
       platformPostId: string | null;
 
@@ -251,7 +267,15 @@ export namespace PostListResponse {
     export interface Platform {
       errorMessage: string | null;
 
-      platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin' | 'bluesky';
+      platform:
+        | 'twitter'
+        | 'instagram'
+        | 'youtube'
+        | 'tiktok'
+        | 'pinterest'
+        | 'linkedin'
+        | 'bluesky'
+        | 'facebook';
 
       platformPostId: string | null;
 
@@ -312,7 +336,15 @@ export namespace PostCreateParams {
      */
     accountId: string;
 
-    platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin' | 'bluesky';
+    platform:
+      | 'twitter'
+      | 'instagram'
+      | 'youtube'
+      | 'tiktok'
+      | 'pinterest'
+      | 'linkedin'
+      | 'bluesky'
+      | 'facebook';
 
     /**
      * Platform-specific options. See TwitterConfigurations, YouTubeConfigurations,
@@ -359,7 +391,9 @@ export interface PostListParams {
   /**
    * Filter by platform (repeatable — OR logic)
    */
-  platform?: Array<'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin' | 'bluesky'>;
+  platform?: Array<
+    'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin' | 'bluesky' | 'facebook'
+  >;
 
   /**
    * ISO 8601 lower bound on scheduledFor

@@ -58,7 +58,15 @@ export namespace IntegrationListResponse {
      */
     imageUrl: string | null;
 
-    platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin' | 'bluesky';
+    platform:
+      | 'twitter'
+      | 'instagram'
+      | 'youtube'
+      | 'tiktok'
+      | 'pinterest'
+      | 'linkedin'
+      | 'bluesky'
+      | 'facebook';
 
     /**
      * The user ID on the platform, or null if not yet retrieved
@@ -90,7 +98,15 @@ export interface IntegrationListParams {
    */
   page?: number;
 
-  platform?: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin' | 'bluesky';
+  platform?:
+    | 'twitter'
+    | 'instagram'
+    | 'youtube'
+    | 'tiktok'
+    | 'pinterest'
+    | 'linkedin'
+    | 'bluesky'
+    | 'facebook';
 
   /**
    * Filter to integrations belonging to this profile. Pass "null" (literal string)

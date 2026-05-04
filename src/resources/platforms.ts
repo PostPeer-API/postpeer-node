@@ -19,7 +19,7 @@ export interface PlatformListResponse {
 
 export namespace PlatformListResponse {
   export interface Platform {
-    name: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin' | 'bluesky';
+    name: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin' | 'bluesky' | 'facebook';
 
     status: 'prod' | 'beta' | 'dev';
   }
