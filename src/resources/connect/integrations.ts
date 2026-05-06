@@ -66,7 +66,8 @@ export namespace IntegrationListResponse {
       | 'pinterest'
       | 'linkedin'
       | 'bluesky'
-      | 'facebook';
+      | 'facebook'
+      | 'threads';
 
     /**
      * The user ID on the platform, or null if not yet retrieved
@@ -106,7 +107,8 @@ export interface IntegrationListParams {
     | 'pinterest'
     | 'linkedin'
     | 'bluesky'
-    | 'facebook';
+    | 'facebook'
+    | 'threads';
 
   /**
    * Filter to integrations belonging to this profile. Pass "null" (literal string)

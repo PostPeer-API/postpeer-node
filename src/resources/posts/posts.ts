@@ -108,7 +108,8 @@ export namespace PostCreateResponse {
       | 'pinterest'
       | 'linkedin'
       | 'bluesky'
-      | 'facebook';
+      | 'facebook'
+      | 'threads';
 
     success: boolean;
 
@@ -191,7 +192,8 @@ export namespace PostRetrieveResponse {
         | 'pinterest'
         | 'linkedin'
         | 'bluesky'
-        | 'facebook';
+        | 'facebook'
+        | 'threads';
 
       platformPostId: string | null;
 
@@ -275,7 +277,8 @@ export namespace PostListResponse {
         | 'pinterest'
         | 'linkedin'
         | 'bluesky'
-        | 'facebook';
+        | 'facebook'
+        | 'threads';
 
       platformPostId: string | null;
 
@@ -344,7 +347,8 @@ export namespace PostCreateParams {
       | 'pinterest'
       | 'linkedin'
       | 'bluesky'
-      | 'facebook';
+      | 'facebook'
+      | 'threads';
 
     /**
      * Platform-specific options. See TwitterConfigurations, YouTubeConfigurations,
@@ -392,7 +396,15 @@ export interface PostListParams {
    * Filter by platform (repeatable — OR logic)
    */
   platform?: Array<
-    'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin' | 'bluesky' | 'facebook'
+    | 'twitter'
+    | 'instagram'
+    | 'youtube'
+    | 'tiktok'
+    | 'pinterest'
+    | 'linkedin'
+    | 'bluesky'
+    | 'facebook'
+    | 'threads'
   >;
 
   /**

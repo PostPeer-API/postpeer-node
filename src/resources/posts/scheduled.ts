@@ -100,7 +100,8 @@ export namespace ScheduledListResponse {
         | 'pinterest'
         | 'linkedin'
         | 'bluesky'
-        | 'facebook';
+        | 'facebook'
+        | 'threads';
 
       status: 'draft' | 'pending' | 'scheduled' | 'publishing' | 'published' | 'failed' | 'partial';
     }
