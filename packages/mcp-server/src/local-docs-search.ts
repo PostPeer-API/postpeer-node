@@ -252,7 +252,7 @@ const EMBEDDED_METHODS: MethodEntry[] = [
       },
       http: {
         example:
-          'curl https://api.postpeer.dev/v1/posts/ \\\n    -H \'Content-Type: application/json\' \\\n    -H "x-access-key: $POSTPEER_API_KEY" \\\n    -d \'{\n          "content": "Hello world!",\n          "platforms": [\n            {\n              "accountId": "<your-account-id>",\n              "platform": "twitter"\n            }\n          ]\n        }\'',
+          'curl https://api.postpeer.dev/v1/posts/ \\\n    -H \'Content-Type: application/json\' \\\n    -H "x-access-key: $POSTPEER_API_KEY" \\\n    -d \'{\n          "content": "Hello world!",\n          "platforms": [\n            {\n              "accountId": "<your-account-id>",\n              "platform": "twitter"\n            }\n          ],\n          "publishNow": true\n        }\'',
       },
     },
   },
