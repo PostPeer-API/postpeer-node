@@ -408,6 +408,12 @@ export interface PostListParams {
   >;
 
   /**
+   * Filter to posts targeting an integration bound to this profile. Pass "null"
+   * (literal string) to filter to posts whose integrations have no profile.
+   */
+  profileId?: string;
+
+  /**
    * ISO 8601 lower bound on scheduledFor
    */
   scheduledAfter?: string;
