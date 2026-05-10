@@ -1,4 +1,4 @@
 configured_endpoints: 14
-openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/postpeer/postpeer-f7fbdff05acb2f47b71da0f11c0cb23577c70c5e3ebc707fc6538e789d294818.yml
-openapi_spec_hash: b3c67f2d597201f89fdec33b9fa277a1
+openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/postpeer/postpeer-db5b81afd53ce49b800edf96804860862c8c9b228397fd44abf204397273859e.yml
+openapi_spec_hash: d32ef030ebb98400e4ca60c3e6cc1c9b
 config_hash: 3b9d9d2ad099a6ce5c64f5f85f90931f
