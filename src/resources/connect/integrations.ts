@@ -27,10 +27,6 @@ export class Integrations extends APIResource {
 export interface IntegrationListResponse {
   integrations: Array<IntegrationListResponse.Integration>;
 
-  limit: number;
-
-  page: number;
-
   success: boolean;
 
   /**
@@ -90,14 +86,14 @@ export interface IntegrationDisconnectResponse {
 
 export interface IntegrationListParams {
   /**
-   * Page size (1-100)
+   * Page size (max 100)
    */
   limit?: number;
 
   /**
-   * Page number
+   * Number of integrations to skip
    */
-  page?: number;
+  offset?: number;
 
   platform?:
     | 'twitter'
@@ -115,6 +111,14 @@ export interface IntegrationListParams {
    * to filter to integrations with no profile.
    */
   profileId?: string;
+
+  /**
+   * Case-insensitive search across the connected account name (displayName) and the
+   * platform user ID.
+   */
+  q?: string;
+
+  sort?: 'asc' | 'desc';
 }
 
 export declare namespace Integrations {

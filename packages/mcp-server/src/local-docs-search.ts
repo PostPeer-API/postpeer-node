@@ -141,11 +141,18 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     description: 'List integrations connected to this project',
     stainlessPath: '(resource) connect.integrations > (method) list',
     qualified: 'client.connect.integrations.list',
-    params: ['limit?: number;', 'page?: number;', 'platform?: string;', 'profileId?: string;'],
+    params: [
+      'limit?: number;',
+      'offset?: number;',
+      'platform?: string;',
+      'profileId?: string;',
+      'q?: string;',
+      "sort?: 'asc' | 'desc';",
+    ],
     response:
-      '{ integrations: { id: string; createdAt: string; displayName: string; imageUrl: string; platform: string; platformUserId: string; profileId: string; }[]; limit: number; page: number; success: boolean; total: number; }',
+      '{ integrations: { id: string; createdAt: string; displayName: string; imageUrl: string; platform: string; platformUserId: string; profileId: string; }[]; success: boolean; total: number; }',
     markdown:
-      '## list\n\n`client.connect.integrations.list(limit?: number, page?: number, platform?: string, profileId?: string): { integrations: object[]; limit: number; page: number; success: boolean; total: number; }`\n\n**get** `/v1/connect/integrations`\n\nList integrations connected to this project\n\n### Parameters\n\n- `limit?: number`\n  Page size (1-100)\n\n- `page?: number`\n  Page number\n\n- `platform?: string`\n\n- `profileId?: string`\n  Filter to integrations belonging to this profile. Pass "null" (literal string) to filter to integrations with no profile.\n\n### Returns\n\n- `{ integrations: { id: string; createdAt: string; displayName: string; imageUrl: string; platform: string; platformUserId: string; profileId: string; }[]; limit: number; page: number; success: boolean; total: number; }`\n\n  - `integrations: { id: string; createdAt: string; displayName: string; imageUrl: string; platform: string; platformUserId: string; profileId: string; }[]`\n  - `limit: number`\n  - `page: number`\n  - `success: boolean`\n  - `total: number`\n\n### Example\n\n```typescript\nimport Postpeer from \'@postpeer/node\';\n\nconst client = new Postpeer();\n\nconst integrations = await client.connect.integrations.list();\n\nconsole.log(integrations);\n```',
+      "## list\n\n`client.connect.integrations.list(limit?: number, offset?: number, platform?: string, profileId?: string, q?: string, sort?: 'asc' | 'desc'): { integrations: object[]; success: boolean; total: number; }`\n\n**get** `/v1/connect/integrations`\n\nList integrations connected to this project\n\n### Parameters\n\n- `limit?: number`\n  Page size (max 100)\n\n- `offset?: number`\n  Number of integrations to skip\n\n- `platform?: string`\n\n- `profileId?: string`\n  Filter to integrations belonging to this profile. Pass \"null\" (literal string) to filter to integrations with no profile.\n\n- `q?: string`\n  Case-insensitive search across the connected account name (displayName) and the platform user ID.\n\n- `sort?: 'asc' | 'desc'`\n\n### Returns\n\n- `{ integrations: { id: string; createdAt: string; displayName: string; imageUrl: string; platform: string; platformUserId: string; profileId: string; }[]; success: boolean; total: number; }`\n\n  - `integrations: { id: string; createdAt: string; displayName: string; imageUrl: string; platform: string; platformUserId: string; profileId: string; }[]`\n  - `success: boolean`\n  - `total: number`\n\n### Example\n\n```typescript\nimport Postpeer from '@postpeer/node';\n\nconst client = new Postpeer();\n\nconst integrations = await client.connect.integrations.list();\n\nconsole.log(integrations);\n```",
     perLanguage: {
       typescript: {
         method: 'client.connect.integrations.list',
@@ -361,13 +368,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     endpoint: '/v1/posts/scheduled/',
     httpMethod: 'get',
     summary: 'List all scheduled posts',
-    description: 'List all scheduled posts',
+    description:
+      'Returns a paginated list of scheduled posts. Use `limit` + `offset` to page through the results.',
     stainlessPath: '(resource) posts.scheduled > (method) list',
     qualified: 'client.posts.scheduled.list',
+    params: ['limit?: number;', 'offset?: number;', "sort?: 'asc' | 'desc';"],
     response:
-      "{ posts: { content: string; createdAt: string; platforms: { platform: string; status: 'draft' | 'pending' | 'scheduled' | 'publishing' | 'published' | 'failed' | 'partial'; }[]; postId: string; scheduledFor: string; timezone: string; mediaItems?: { type: 'image' | 'video' | 'gif'; url: string; thumbnail?: string; }[]; }[]; success: boolean; }",
+      "{ posts: { content: string; createdAt: string; platforms: { platform: string; status: 'draft' | 'pending' | 'scheduled' | 'publishing' | 'published' | 'failed' | 'partial'; }[]; postId: string; scheduledFor: string; timezone: string; mediaItems?: { type: 'image' | 'video' | 'gif'; url: string; thumbnail?: string; }[]; }[]; success: boolean; total: number; }",
     markdown:
-      "## list\n\n`client.posts.scheduled.list(): { posts: object[]; success: boolean; }`\n\n**get** `/v1/posts/scheduled/`\n\nList all scheduled posts\n\n### Returns\n\n- `{ posts: { content: string; createdAt: string; platforms: { platform: string; status: 'draft' | 'pending' | 'scheduled' | 'publishing' | 'published' | 'failed' | 'partial'; }[]; postId: string; scheduledFor: string; timezone: string; mediaItems?: { type: 'image' | 'video' | 'gif'; url: string; thumbnail?: string; }[]; }[]; success: boolean; }`\n\n  - `posts: { content: string; createdAt: string; platforms: { platform: string; status: 'draft' | 'pending' | 'scheduled' | 'publishing' | 'published' | 'failed' | 'partial'; }[]; postId: string; scheduledFor: string; timezone: string; mediaItems?: { type: 'image' | 'video' | 'gif'; url: string; thumbnail?: string; }[]; }[]`\n  - `success: boolean`\n\n### Example\n\n```typescript\nimport Postpeer from '@postpeer/node';\n\nconst client = new Postpeer();\n\nconst scheduleds = await client.posts.scheduled.list();\n\nconsole.log(scheduleds);\n```",
+      "## list\n\n`client.posts.scheduled.list(limit?: number, offset?: number, sort?: 'asc' | 'desc'): { posts: object[]; success: boolean; total: number; }`\n\n**get** `/v1/posts/scheduled/`\n\nReturns a paginated list of scheduled posts. Use `limit` + `offset` to page through the results.\n\n### Parameters\n\n- `limit?: number`\n  Page size (max 100)\n\n- `offset?: number`\n  Number of scheduled posts to skip\n\n- `sort?: 'asc' | 'desc'`\n\n### Returns\n\n- `{ posts: { content: string; createdAt: string; platforms: { platform: string; status: 'draft' | 'pending' | 'scheduled' | 'publishing' | 'published' | 'failed' | 'partial'; }[]; postId: string; scheduledFor: string; timezone: string; mediaItems?: { type: 'image' | 'video' | 'gif'; url: string; thumbnail?: string; }[]; }[]; success: boolean; total: number; }`\n\n  - `posts: { content: string; createdAt: string; platforms: { platform: string; status: 'draft' | 'pending' | 'scheduled' | 'publishing' | 'published' | 'failed' | 'partial'; }[]; postId: string; scheduledFor: string; timezone: string; mediaItems?: { type: 'image' | 'video' | 'gif'; url: string; thumbnail?: string; }[]; }[]`\n  - `success: boolean`\n  - `total: number`\n\n### Example\n\n```typescript\nimport Postpeer from '@postpeer/node';\n\nconst client = new Postpeer();\n\nconst scheduleds = await client.posts.scheduled.list();\n\nconsole.log(scheduleds);\n```",
     perLanguage: {
       typescript: {
         method: 'client.posts.scheduled.list',

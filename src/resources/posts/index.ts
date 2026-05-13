@@ -15,5 +15,6 @@ export {
   type ScheduledListResponse,
   type ScheduledCancelResponse,
   type ScheduledRescheduleResponse,
+  type ScheduledListParams,
   type ScheduledRescheduleParams,
 } from './scheduled';

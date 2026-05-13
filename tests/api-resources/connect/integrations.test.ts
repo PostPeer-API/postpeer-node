@@ -27,9 +27,11 @@ describe('resource integrations', () => {
       client.connect.integrations.list(
         {
           limit: 1,
-          page: 1,
+          offset: 0,
           platform: 'twitter',
           profileId: 'profileId',
+          q: 'q',
+          sort: 'asc',
         },
         { path: '/_stainless_unknown_path' },
       ),

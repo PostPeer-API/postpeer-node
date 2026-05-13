@@ -69,7 +69,7 @@ Types:
 
 Methods:
 
-- <code title="get /v1/posts/scheduled/">client.posts.scheduled.<a href="./src/resources/posts/scheduled.ts">list</a>() -> ScheduledListResponse</code>
+- <code title="get /v1/posts/scheduled/">client.posts.scheduled.<a href="./src/resources/posts/scheduled.ts">list</a>({ ...params }) -> ScheduledListResponse</code>
 - <code title="delete /v1/posts/scheduled/{postId}">client.posts.scheduled.<a href="./src/resources/posts/scheduled.ts">cancel</a>(postID) -> ScheduledCancelResponse</code>
 - <code title="patch /v1/posts/scheduled/{postId}">client.posts.scheduled.<a href="./src/resources/posts/scheduled.ts">reschedule</a>(postID, { ...params }) -> ScheduledRescheduleResponse</code>
 

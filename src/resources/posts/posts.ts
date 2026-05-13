@@ -5,6 +5,7 @@ import * as ScheduledAPI from './scheduled';
 import {
   Scheduled,
   ScheduledCancelResponse,
+  ScheduledListParams,
   ScheduledListResponse,
   ScheduledRescheduleParams,
   ScheduledRescheduleResponse,
@@ -446,6 +447,7 @@ export declare namespace Posts {
     type ScheduledListResponse as ScheduledListResponse,
     type ScheduledCancelResponse as ScheduledCancelResponse,
     type ScheduledRescheduleResponse as ScheduledRescheduleResponse,
+    type ScheduledListParams as ScheduledListParams,
     type ScheduledRescheduleParams as ScheduledRescheduleParams,
   };
 }
