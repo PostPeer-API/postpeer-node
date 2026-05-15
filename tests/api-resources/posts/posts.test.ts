@@ -31,6 +31,7 @@ describe('resource posts', () => {
         {
           accountId: '<your-account-id>',
           platform: 'twitter',
+          content: 'content',
           platformSpecificData: { foo: 'bar' },
         },
       ],

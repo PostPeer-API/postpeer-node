@@ -183,6 +183,12 @@ export namespace PostRetrieveResponse {
     }
 
     export interface Platform {
+      /**
+       * Per-platform text override that was used for this platform. Null when the
+       * top-level `content` was used.
+       */
+      content: string | null;
+
       errorMessage: string | null;
 
       platform:
@@ -268,6 +274,12 @@ export namespace PostListResponse {
     }
 
     export interface Platform {
+      /**
+       * Per-platform text override that was used for this platform. Null when the
+       * top-level `content` was used.
+       */
+      content: string | null;
+
       errorMessage: string | null;
 
       platform:
@@ -350,6 +362,13 @@ export namespace PostCreateParams {
       | 'bluesky'
       | 'facebook'
       | 'threads';
+
+    /**
+     * Optional per-platform text override. Use when you want to change the text for
+     * this platform because different platforms talk differently. When omitted, the
+     * top-level `content` is used.
+     */
+    content?: string;
 
     /**
      * Platform-specific options. See TwitterConfigurations, YouTubeConfigurations,
