@@ -1,5 +1,34 @@
 # Changelog
 
+## 0.7.0 (2026-05-19)
+
+Full Changelog: [v0.6.0...v0.7.0](https://github.com/PostPeer-API/postpeer-node/compare/v0.6.0...v0.7.0)
+
+### Features
+
+* **api:** api update ([3ea6c9c](https://github.com/PostPeer-API/postpeer-node/commit/3ea6c9cd024624c0780f12b15a666f484a3cfa12))
+* **api:** api update ([92bcd6e](https://github.com/PostPeer-API/postpeer-node/commit/92bcd6e92baf495de01fa30194810c03ddeb73fd))
+* **api:** api update ([71fe758](https://github.com/PostPeer-API/postpeer-node/commit/71fe7580cc67c705e868208f430af8ef18e10399))
+* **api:** api update ([ba583d0](https://github.com/PostPeer-API/postpeer-node/commit/ba583d0b9bfea6ea5657f8d73e832b3d5ab0a056))
+* **api:** api update ([01f1907](https://github.com/PostPeer-API/postpeer-node/commit/01f1907a729f7e0fdbf1aa7b133553d4397417c1))
+* **api:** api update ([7395420](https://github.com/PostPeer-API/postpeer-node/commit/7395420c425cb7d6efe09f53b5a45f0a9450c5cf))
+
+
+### Bug Fixes
+
+* **typescript:** upgrade tsc-multi so that it works with Node 26 ([790d61c](https://github.com/PostPeer-API/postpeer-node/commit/790d61cba30fb1f83076f686ccfa2e586e958c5e))
+
+
+### Chores
+
+* redact api-key headers in debug logs ([9f4b4c0](https://github.com/PostPeer-API/postpeer-node/commit/9f4b4c000fb771ea8d1e510043537e1cbfb438e4))
+* **tests:** remove redundant File import ([6f6647f](https://github.com/PostPeer-API/postpeer-node/commit/6f6647fdb4e21d9576a3898d724aefbaeecd1af9))
+
+
+### Documentation
+
+* update http mcp docs ([a7586bf](https://github.com/PostPeer-API/postpeer-node/commit/a7586bfc91be444612dc4137409c97fe89cc1617))
+
 ## 0.6.0 (2026-04-30)
 
 Full Changelog: [v0.5.0...v0.6.0](https://github.com/PostPeer-API/postpeer-node/compare/v0.5.0...v0.6.0)
