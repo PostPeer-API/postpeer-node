@@ -19,7 +19,16 @@ export class Connect extends APIResource {
    * Get OAuth URL for a platform
    */
   getOAuthURL(
-    platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin' | 'bluesky',
+    platform:
+      | 'twitter'
+      | 'instagram'
+      | 'youtube'
+      | 'tiktok'
+      | 'pinterest'
+      | 'linkedin'
+      | 'bluesky'
+      | 'facebook'
+      | 'threads',
     query: ConnectGetOAuthURLParams | null | undefined = {},
     options?: RequestOptions,
   ): APIPromise<ConnectGetOAuthURLResponse> {
@@ -32,6 +41,12 @@ export interface ConnectGetOAuthURLResponse {
 }
 
 export interface ConnectGetOAuthURLParams {
+  /**
+   * Profile to associate the resulting integration with. Must belong to the same
+   * project. Omit to connect without a profile.
+   */
+  profileId?: string;
+
   /**
    * URL to redirect to after a successful connection
    */

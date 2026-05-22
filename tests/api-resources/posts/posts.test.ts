@@ -31,6 +31,7 @@ describe('resource posts', () => {
         {
           accountId: '<your-account-id>',
           platform: 'twitter',
+          content: 'content',
           platformSpecificData: { foo: 'bar' },
         },
       ],
@@ -82,6 +83,7 @@ describe('resource posts', () => {
           limit: 1,
           offset: 0,
           platform: ['twitter'],
+          profileId: 'profileId',
           scheduledAfter: '2019-12-27T18:11:19.117Z',
           scheduledBefore: '2019-12-27T18:11:19.117Z',
           sort: 'asc',

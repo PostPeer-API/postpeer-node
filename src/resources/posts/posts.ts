@@ -5,6 +5,7 @@ import * as ScheduledAPI from './scheduled';
 import {
   Scheduled,
   ScheduledCancelResponse,
+  ScheduledListParams,
   ScheduledListResponse,
   ScheduledRescheduleParams,
   ScheduledRescheduleResponse,
@@ -100,7 +101,16 @@ export interface PostCreateResponse {
 
 export namespace PostCreateResponse {
   export interface Platform {
-    platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin' | 'bluesky';
+    platform:
+      | 'twitter'
+      | 'instagram'
+      | 'youtube'
+      | 'tiktok'
+      | 'pinterest'
+      | 'linkedin'
+      | 'bluesky'
+      | 'facebook'
+      | 'threads';
 
     success: boolean;
 
@@ -173,9 +183,24 @@ export namespace PostRetrieveResponse {
     }
 
     export interface Platform {
+      /**
+       * Per-platform text override that was used for this platform. Null when the
+       * top-level `content` was used.
+       */
+      content: string | null;
+
       errorMessage: string | null;
 
-      platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin' | 'bluesky';
+      platform:
+        | 'twitter'
+        | 'instagram'
+        | 'youtube'
+        | 'tiktok'
+        | 'pinterest'
+        | 'linkedin'
+        | 'bluesky'
+        | 'facebook'
+        | 'threads';
 
       platformPostId: string | null;
 
@@ -249,9 +274,24 @@ export namespace PostListResponse {
     }
 
     export interface Platform {
+      /**
+       * Per-platform text override that was used for this platform. Null when the
+       * top-level `content` was used.
+       */
+      content: string | null;
+
       errorMessage: string | null;
 
-      platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin' | 'bluesky';
+      platform:
+        | 'twitter'
+        | 'instagram'
+        | 'youtube'
+        | 'tiktok'
+        | 'pinterest'
+        | 'linkedin'
+        | 'bluesky'
+        | 'facebook'
+        | 'threads';
 
       platformPostId: string | null;
 
@@ -312,7 +352,23 @@ export namespace PostCreateParams {
      */
     accountId: string;
 
-    platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin' | 'bluesky';
+    platform:
+      | 'twitter'
+      | 'instagram'
+      | 'youtube'
+      | 'tiktok'
+      | 'pinterest'
+      | 'linkedin'
+      | 'bluesky'
+      | 'facebook'
+      | 'threads';
+
+    /**
+     * Optional per-platform text override. Use when you want to change the text for
+     * this platform because different platforms talk differently. When omitted, the
+     * top-level `content` is used.
+     */
+    content?: string;
 
     /**
      * Platform-specific options. See TwitterConfigurations, YouTubeConfigurations,
@@ -359,7 +415,23 @@ export interface PostListParams {
   /**
    * Filter by platform (repeatable — OR logic)
    */
-  platform?: Array<'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin' | 'bluesky'>;
+  platform?: Array<
+    | 'twitter'
+    | 'instagram'
+    | 'youtube'
+    | 'tiktok'
+    | 'pinterest'
+    | 'linkedin'
+    | 'bluesky'
+    | 'facebook'
+    | 'threads'
+  >;
+
+  /**
+   * Filter to posts targeting an integration bound to this profile. Pass "null"
+   * (literal string) to filter to posts whose integrations have no profile.
+   */
+  profileId?: string;
 
   /**
    * ISO 8601 lower bound on scheduledFor
@@ -394,6 +466,7 @@ export declare namespace Posts {
     type ScheduledListResponse as ScheduledListResponse,
     type ScheduledCancelResponse as ScheduledCancelResponse,
     type ScheduledRescheduleResponse as ScheduledRescheduleResponse,
+    type ScheduledListParams as ScheduledListParams,
     type ScheduledRescheduleParams as ScheduledRescheduleParams,
   };
 }

@@ -7,15 +7,19 @@ import { path } from '../../internal/utils/path';
 
 export class Scheduled extends APIResource {
   /**
-   * List all scheduled posts
+   * Returns a paginated list of scheduled posts. Use `limit` + `offset` to page
+   * through the results.
    *
    * @example
    * ```ts
    * const scheduleds = await client.posts.scheduled.list();
    * ```
    */
-  list(options?: RequestOptions): APIPromise<ScheduledListResponse> {
-    return this._client.get('/v1/posts/scheduled/', options);
+  list(
+    query: ScheduledListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<ScheduledListResponse> {
+    return this._client.get('/v1/posts/scheduled/', { query, ...options });
   }
 
   /**
@@ -56,6 +60,11 @@ export interface ScheduledListResponse {
   posts: Array<ScheduledListResponse.Post>;
 
   success: boolean;
+
+  /**
+   * Total matched scheduled posts across all pages
+   */
+  total: number;
 }
 
 export namespace ScheduledListResponse {
@@ -92,7 +101,16 @@ export namespace ScheduledListResponse {
 
   export namespace Post {
     export interface Platform {
-      platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin' | 'bluesky';
+      platform:
+        | 'twitter'
+        | 'instagram'
+        | 'youtube'
+        | 'tiktok'
+        | 'pinterest'
+        | 'linkedin'
+        | 'bluesky'
+        | 'facebook'
+        | 'threads';
 
       status: 'draft' | 'pending' | 'scheduled' | 'publishing' | 'published' | 'failed' | 'partial';
     }
@@ -125,6 +143,20 @@ export interface ScheduledRescheduleResponse {
   success: boolean;
 }
 
+export interface ScheduledListParams {
+  /**
+   * Page size (max 100)
+   */
+  limit?: number;
+
+  /**
+   * Number of scheduled posts to skip
+   */
+  offset?: number;
+
+  sort?: 'asc' | 'desc';
+}
+
 export interface ScheduledRescheduleParams {
   /**
    * New ISO 8601 datetime to schedule the post
@@ -142,6 +174,7 @@ export declare namespace Scheduled {
     type ScheduledListResponse as ScheduledListResponse,
     type ScheduledCancelResponse as ScheduledCancelResponse,
     type ScheduledRescheduleResponse as ScheduledRescheduleResponse,
+    type ScheduledListParams as ScheduledListParams,
     type ScheduledRescheduleParams as ScheduledRescheduleParams,
   };
 }

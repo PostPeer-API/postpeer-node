@@ -27,10 +27,6 @@ export class Integrations extends APIResource {
 export interface IntegrationListResponse {
   integrations: Array<IntegrationListResponse.Integration>;
 
-  limit: number;
-
-  page: number;
-
   success: boolean;
 
   /**
@@ -58,12 +54,27 @@ export namespace IntegrationListResponse {
      */
     imageUrl: string | null;
 
-    platform: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin' | 'bluesky';
+    platform:
+      | 'twitter'
+      | 'instagram'
+      | 'youtube'
+      | 'tiktok'
+      | 'pinterest'
+      | 'linkedin'
+      | 'bluesky'
+      | 'facebook'
+      | 'threads';
 
     /**
      * The user ID on the platform, or null if not yet retrieved
      */
     platformUserId: string | null;
+
+    /**
+     * Profile this integration belongs to, or null if it was connected without a
+     * profile
+     */
+    profileId: string | null;
   }
 }
 
@@ -75,16 +86,39 @@ export interface IntegrationDisconnectResponse {
 
 export interface IntegrationListParams {
   /**
-   * Page size (1-100)
+   * Page size (max 100)
    */
   limit?: number;
 
   /**
-   * Page number
+   * Number of integrations to skip
    */
-  page?: number;
+  offset?: number;
 
-  platform?: 'twitter' | 'instagram' | 'youtube' | 'tiktok' | 'pinterest' | 'linkedin' | 'bluesky';
+  platform?:
+    | 'twitter'
+    | 'instagram'
+    | 'youtube'
+    | 'tiktok'
+    | 'pinterest'
+    | 'linkedin'
+    | 'bluesky'
+    | 'facebook'
+    | 'threads';
+
+  /**
+   * Filter to integrations belonging to this profile. Pass "null" (literal string)
+   * to filter to integrations with no profile.
+   */
+  profileId?: string;
+
+  /**
+   * Case-insensitive search across the connected account name (displayName) and the
+   * platform user ID.
+   */
+  q?: string;
+
+  sort?: 'asc' | 'desc';
 }
 
 export declare namespace Integrations {

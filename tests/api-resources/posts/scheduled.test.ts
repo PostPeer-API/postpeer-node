@@ -21,6 +21,21 @@ describe('resource scheduled', () => {
   });
 
   // Mock server tests are disabled
+  test.skip('list: request options and params are passed correctly', async () => {
+    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
+    await expect(
+      client.posts.scheduled.list(
+        {
+          limit: 1,
+          offset: 0,
+          sort: 'asc',
+        },
+        { path: '/_stainless_unknown_path' },
+      ),
+    ).rejects.toThrow(Postpeer.NotFoundError);
+  });
+
+  // Mock server tests are disabled
   test.skip('cancel', async () => {
     const responsePromise = client.posts.scheduled.cancel('postId');
     const rawResponse = await responsePromise.asResponse();
