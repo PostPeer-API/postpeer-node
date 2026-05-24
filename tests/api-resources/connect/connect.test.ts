@@ -26,7 +26,11 @@ describe('resource connect', () => {
     await expect(
       client.connect.getOAuthURL(
         'twitter',
-        { profileId: 'profileId', redirectUri: 'https://example.com' },
+        {
+          appId: 'appId',
+          profileId: 'profileId',
+          redirectUri: 'https://example.com',
+        },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(Postpeer.NotFoundError);

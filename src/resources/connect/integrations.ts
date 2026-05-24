@@ -43,8 +43,21 @@ export namespace IntegrationListResponse {
     id: string;
 
     /**
+     * The OAuth app metadata for BYOK integrations, or null when postpeer system app
+     * was used.
+     */
+    app: Integration.App | null;
+
+    /**
+     * The OAuth app (customer's own OAuth app) this integration was connected under,
+     * or null if postpeer's system app was used.
+     */
+    appId: string | null;
+
+    /**
      * True when this integration was connected under the customer's own OAuth app
-     * (Bring Your Own Keys). False when postpeer's system app is used.
+     * (Bring Your Own Keys), i.e. appId is set. False when postpeer's system app is
+     * used.
      */
     byok: boolean;
 
@@ -81,6 +94,20 @@ export namespace IntegrationListResponse {
      * profile
      */
     profileId: string | null;
+  }
+
+  export namespace Integration {
+    /**
+     * The OAuth app metadata for BYOK integrations, or null when postpeer system app
+     * was used.
+     */
+    export interface App {
+      id?: string;
+
+      imageUrl?: string | null;
+
+      name?: string;
+    }
   }
 }
 

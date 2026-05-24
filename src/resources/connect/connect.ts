@@ -42,6 +42,13 @@ export interface ConnectGetOAuthURLResponse {
 
 export interface ConnectGetOAuthURLParams {
   /**
+   * Connect under your own OAuth app (Bring Your Own Keys). Pass the id of an OAuth
+   * app created via /v1/apps for this same platform. Omit to use postpeer's system
+   * app.
+   */
+  appId?: string;
+
+  /**
    * Profile to associate the resulting integration with. Must belong to the same
    * project. Omit to connect without a profile.
    */
