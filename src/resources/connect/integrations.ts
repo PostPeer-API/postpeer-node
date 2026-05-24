@@ -42,6 +42,12 @@ export namespace IntegrationListResponse {
      */
     id: string;
 
+    /**
+     * True when this integration was connected under the customer's own OAuth app
+     * (Bring Your Own Keys). False when postpeer's system app is used.
+     */
+    byok: boolean;
+
     createdAt: string;
 
     /**
