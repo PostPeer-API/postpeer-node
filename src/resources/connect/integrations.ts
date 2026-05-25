@@ -94,6 +94,11 @@ export namespace IntegrationListResponse {
      * profile
      */
     profileId: string | null;
+
+    /**
+     * Provider-specific public metadata for this connected account.
+     */
+    platformMetadata?: { [key: string]: unknown };
   }
 
   export namespace Integration {
