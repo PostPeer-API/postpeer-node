@@ -64,7 +64,7 @@ export namespace IntegrationListResponse {
     createdAt: string;
 
     /**
-     * Display name of the connected account (e.g. @handle or channel name)
+     * Human-readable display name of the connected account
      */
     displayName: string | null;
 
@@ -94,6 +94,16 @@ export namespace IntegrationListResponse {
      * profile
      */
     profileId: string | null;
+
+    /**
+     * Public profile/page URL for the connected account, when it can be derived
+     */
+    profileUrl: string | null;
+
+    /**
+     * The public username or handle, including @ for handle-based platforms
+     */
+    username: string | null;
 
     /**
      * Provider-specific public metadata for this connected account.
@@ -151,8 +161,8 @@ export interface IntegrationListParams {
   profileId?: string;
 
   /**
-   * Case-insensitive search across the connected account name (displayName) and the
-   * platform user ID.
+   * Case-insensitive search across the connected account name (displayName),
+   * username, and platform user ID.
    */
   q?: string;
 
