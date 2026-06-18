@@ -28,6 +28,7 @@ describe('resource connect', () => {
         'twitter',
         {
           appId: 'appId',
+          headless: true,
           profileId: 'profileId',
           redirectUri: 'https://example.com',
         },

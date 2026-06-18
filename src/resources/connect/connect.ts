@@ -16,7 +16,11 @@ export class Connect extends APIResource {
   integrations: IntegrationsAPI.Integrations = new IntegrationsAPI.Integrations(this._client);
 
   /**
-   * Get OAuth URL for a platform
+   * Initiates an OAuth connection flow. By default, PostPeer hosts any required
+   * account selection UI and then returns the user to redirectUri. For LinkedIn
+   * custom account-selection UI, pass headless=true; if selection is required, the
+   * callback redirects to redirectUri with status=selection_required,
+   * platform=linkedin, and selectionToken.
    */
   getOAuthURL(
     platform:
@@ -49,13 +53,22 @@ export interface ConnectGetOAuthURLParams {
   appId?: string;
 
   /**
+   * When true, platforms that require account selection redirect back to redirectUri
+   * with a short-lived selectionToken so you can build your own selection UI. When
+   * false, PostPeer hosts the selection UI.
+   */
+  headless?: boolean;
+
+  /**
    * Profile to associate the resulting integration with. Must belong to the same
    * project. Omit to connect without a profile.
    */
   profileId?: string;
 
   /**
-   * URL to redirect to after a successful connection
+   * Final URL to redirect to after the connection completes. In headless mode, this
+   * URL also receives selection status query parameters when customer-owned account
+   * selection is required.
    */
   redirectUri?: string;
 }
