@@ -115,7 +115,8 @@ export namespace PostCreateResponse {
       | 'linkedin'
       | 'bluesky'
       | 'facebook'
-      | 'threads';
+      | 'threads'
+      | 'googlebusiness';
 
     success: boolean;
 
@@ -205,7 +206,8 @@ export namespace PostRetrieveResponse {
         | 'linkedin'
         | 'bluesky'
         | 'facebook'
-        | 'threads';
+        | 'threads'
+        | 'googlebusiness';
 
       platformPostId: string | null;
 
@@ -296,7 +298,8 @@ export namespace PostListResponse {
         | 'linkedin'
         | 'bluesky'
         | 'facebook'
-        | 'threads';
+        | 'threads'
+        | 'googlebusiness';
 
       platformPostId: string | null;
 
@@ -388,7 +391,8 @@ export namespace PostCreateParams {
       | 'linkedin'
       | 'bluesky'
       | 'facebook'
-      | 'threads';
+      | 'threads'
+      | 'googlebusiness';
 
     /**
      * Optional per-platform text override. Use when you want to change the text for
@@ -399,8 +403,9 @@ export namespace PostCreateParams {
 
     /**
      * Platform-specific options. See TwitterConfigurations, YouTubeConfigurations,
-     * TikTokConfigurations, PinterestConfigurations, or LinkedInConfigurations in the
-     * schema reference for available fields per platform.
+     * TikTokConfigurations, PinterestConfigurations, LinkedInConfigurations, or
+     * GoogleBusinessConfigurations in the schema reference for available fields per
+     * platform.
      */
     platformSpecificData?: { [key: string]: unknown };
   }
@@ -452,6 +457,7 @@ export interface PostListParams {
     | 'bluesky'
     | 'facebook'
     | 'threads'
+    | 'googlebusiness'
   >;
 
   /**

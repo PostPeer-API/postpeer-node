@@ -28,7 +28,8 @@ export namespace PlatformListResponse {
       | 'linkedin'
       | 'bluesky'
       | 'facebook'
-      | 'threads';
+      | 'threads'
+      | 'googlebusiness';
 
     status: 'prod' | 'beta' | 'dev';
   }

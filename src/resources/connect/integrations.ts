@@ -82,7 +82,8 @@ export namespace IntegrationListResponse {
       | 'linkedin'
       | 'bluesky'
       | 'facebook'
-      | 'threads';
+      | 'threads'
+      | 'googlebusiness';
 
     /**
      * The user ID on the platform, or null if not yet retrieved
@@ -152,7 +153,8 @@ export interface IntegrationListParams {
     | 'linkedin'
     | 'bluesky'
     | 'facebook'
-    | 'threads';
+    | 'threads'
+    | 'googlebusiness';
 
   /**
    * Filter to integrations belonging to this profile. Pass "null" (literal string)

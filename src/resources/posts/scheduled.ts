@@ -110,7 +110,8 @@ export namespace ScheduledListResponse {
         | 'linkedin'
         | 'bluesky'
         | 'facebook'
-        | 'threads';
+        | 'threads'
+        | 'googlebusiness';
 
       status: 'draft' | 'pending' | 'scheduled' | 'publishing' | 'published' | 'failed' | 'partial';
     }

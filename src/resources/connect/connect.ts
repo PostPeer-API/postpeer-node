@@ -32,7 +32,8 @@ export class Connect extends APIResource {
       | 'linkedin'
       | 'bluesky'
       | 'facebook'
-      | 'threads',
+      | 'threads'
+      | 'googlebusiness',
     query: ConnectGetOAuthURLParams | null | undefined = {},
     options?: RequestOptions,
   ): APIPromise<ConnectGetOAuthURLResponse> {
