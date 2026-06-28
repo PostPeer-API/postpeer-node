@@ -349,10 +349,11 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     description: 'Delete a post by ID',
     stainlessPath: '(resource) posts > (method) delete',
     qualified: 'client.posts.delete',
-    params: ['postId: string;'],
-    response: '{ success: boolean; }',
+    params: ['postId: string;', 'deleteFromPlatforms?: boolean;'],
+    response:
+      '{ success: boolean; creditsCharged?: number; platforms?: { integrationId: string; platform: string; platformPostId: string; status: string; success: boolean; errorMessage?: string; message?: string; }[]; }',
     markdown:
-      "## delete\n\n`client.posts.delete(postId: string): { success: boolean; }`\n\n**delete** `/v1/posts/{postId}`\n\nDelete a post by ID\n\n### Parameters\n\n- `postId: string`\n\n### Returns\n\n- `{ success: boolean; }`\n\n  - `success: boolean`\n\n### Example\n\n```typescript\nimport Postpeer from '@postpeer/node';\n\nconst client = new Postpeer();\n\nconst post = await client.posts.delete('postId');\n\nconsole.log(post);\n```",
+      "## delete\n\n`client.posts.delete(postId: string, deleteFromPlatforms?: boolean): { success: boolean; creditsCharged?: number; platforms?: object[]; }`\n\n**delete** `/v1/posts/{postId}`\n\nDelete a post by ID\n\n### Parameters\n\n- `postId: string`\n\n- `deleteFromPlatforms?: boolean`\n  When true, also delete supported published platform posts. Costs 1 credit per successful platform deletion.\n\n### Returns\n\n- `{ success: boolean; creditsCharged?: number; platforms?: { integrationId: string; platform: string; platformPostId: string; status: string; success: boolean; errorMessage?: string; message?: string; }[]; }`\n\n  - `success: boolean`\n  - `creditsCharged?: number`\n  - `platforms?: { integrationId: string; platform: string; platformPostId: string; status: string; success: boolean; errorMessage?: string; message?: string; }[]`\n\n### Example\n\n```typescript\nimport Postpeer from '@postpeer/node';\n\nconst client = new Postpeer();\n\nconst post = await client.posts.delete('postId');\n\nconsole.log(post);\n```",
     perLanguage: {
       typescript: {
         method: 'client.posts.delete',
@@ -362,7 +363,7 @@ const EMBEDDED_METHODS: MethodEntry[] = [
       python: {
         method: 'posts.delete',
         example:
-          'import os\nfrom postpeer import Postpeer\n\nclient = Postpeer(\n    api_key=os.environ.get("POSTPEER_API_KEY"),  # This is the default and can be omitted\n)\npost = client.posts.delete(\n    "postId",\n)\nprint(post.success)',
+          'import os\nfrom postpeer import Postpeer\n\nclient = Postpeer(\n    api_key=os.environ.get("POSTPEER_API_KEY"),  # This is the default and can be omitted\n)\npost = client.posts.delete(\n    post_id="postId",\n)\nprint(post.success)',
       },
       http: {
         example:

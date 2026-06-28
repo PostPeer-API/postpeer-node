@@ -9,6 +9,7 @@ export {
   type PostDeleteResponse,
   type PostCreateParams,
   type PostListParams,
+  type PostDeleteParams,
 } from './posts';
 export {
   Scheduled,

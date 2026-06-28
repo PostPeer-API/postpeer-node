@@ -71,8 +71,13 @@ export class Posts extends APIResource {
    * const post = await client.posts.delete('postId');
    * ```
    */
-  delete(postID: string, options?: RequestOptions): APIPromise<PostDeleteResponse> {
-    return this._client.delete(path`/v1/posts/${postID}`, options);
+  delete(
+    postID: string,
+    params: PostDeleteParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<PostDeleteResponse> {
+    const { deleteFromPlatforms } = params ?? {};
+    return this._client.delete(path`/v1/posts/${postID}`, { query: { deleteFromPlatforms }, ...options });
   }
 }
 
@@ -311,6 +316,28 @@ export namespace PostListResponse {
 
 export interface PostDeleteResponse {
   success: boolean;
+
+  creditsCharged?: number;
+
+  platforms?: Array<PostDeleteResponse.Platform>;
+}
+
+export namespace PostDeleteResponse {
+  export interface Platform {
+    integrationId: string;
+
+    platform: string;
+
+    platformPostId: string | null;
+
+    status: string;
+
+    success: boolean;
+
+    errorMessage?: string;
+
+    message?: string;
+  }
 }
 
 export interface PostCreateParams {
@@ -448,6 +475,14 @@ export interface PostListParams {
   status?: 'draft' | 'pending' | 'scheduled' | 'publishing' | 'published' | 'failed' | 'partial';
 }
 
+export interface PostDeleteParams {
+  /**
+   * When true, also delete supported published platform posts. Costs 1 credit per
+   * successful platform deletion.
+   */
+  deleteFromPlatforms?: boolean;
+}
+
 Posts.Scheduled = Scheduled;
 
 export declare namespace Posts {
@@ -459,6 +494,7 @@ export declare namespace Posts {
     type PostDeleteResponse as PostDeleteResponse,
     type PostCreateParams as PostCreateParams,
     type PostListParams as PostListParams,
+    type PostDeleteParams as PostDeleteParams,
   };
 
   export {

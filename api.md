@@ -57,7 +57,7 @@ Methods:
 - <code title="post /v1/posts/">client.posts.<a href="./src/resources/posts/posts.ts">create</a>({ ...params }) -> PostCreateResponse</code>
 - <code title="get /v1/posts/{postId}">client.posts.<a href="./src/resources/posts/posts.ts">retrieve</a>(postID) -> PostRetrieveResponse</code>
 - <code title="get /v1/posts/">client.posts.<a href="./src/resources/posts/posts.ts">list</a>({ ...params }) -> PostListResponse</code>
-- <code title="delete /v1/posts/{postId}">client.posts.<a href="./src/resources/posts/posts.ts">delete</a>(postID) -> PostDeleteResponse</code>
+- <code title="delete /v1/posts/{postId}">client.posts.<a href="./src/resources/posts/posts.ts">delete</a>(postID, { ...params }) -> PostDeleteResponse</code>
 
 ## Scheduled
 

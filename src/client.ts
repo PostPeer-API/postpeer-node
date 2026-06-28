@@ -24,6 +24,7 @@ import { Connect, ConnectGetOAuthURLParams, ConnectGetOAuthURLResponse } from '.
 import {
   PostCreateParams,
   PostCreateResponse,
+  PostDeleteParams,
   PostDeleteResponse,
   PostListParams,
   PostListResponse,
@@ -787,6 +788,7 @@ export declare namespace Postpeer {
     type PostDeleteResponse as PostDeleteResponse,
     type PostCreateParams as PostCreateParams,
     type PostListParams as PostListParams,
+    type PostDeleteParams as PostDeleteParams,
   };
 
   export {
