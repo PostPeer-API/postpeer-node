@@ -411,7 +411,7 @@ export namespace PostCreateParams {
   }
 
   export interface MediaItem {
-    type: 'image' | 'video' | 'gif';
+    type: 'image' | 'video' | 'gif' | 'document';
 
     url: string;
 
