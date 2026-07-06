@@ -118,6 +118,10 @@ export namespace PostCreateResponse {
       | 'threads'
       | 'googlebusiness';
 
+    /**
+     * For publish-now timeout fallback, true means the platform target was accepted
+     * and final status is still pending.
+     */
     success: boolean;
 
     /**
