@@ -81,7 +81,15 @@ export class Posts extends APIResource {
   }
 }
 
-export type Status = 'draft' | 'pending' | 'scheduled' | 'publishing' | 'published' | 'failed' | 'partial';
+export type Status =
+  | 'draft'
+  | 'media_processing'
+  | 'pending'
+  | 'scheduled'
+  | 'publishing'
+  | 'published'
+  | 'failed'
+  | 'partial';
 
 export interface PostCreateResponse {
   platforms: Array<PostCreateResponse.Platform>;
@@ -91,7 +99,15 @@ export interface PostCreateResponse {
    */
   postId: string;
 
-  status: 'draft' | 'pending' | 'scheduled' | 'publishing' | 'published' | 'failed' | 'partial';
+  status:
+    | 'draft'
+    | 'media_processing'
+    | 'pending'
+    | 'scheduled'
+    | 'publishing'
+    | 'published'
+    | 'failed'
+    | 'partial';
 
   /**
    * false only when every platform failed
@@ -172,7 +188,15 @@ export namespace PostRetrieveResponse {
      */
     scheduledFor: string | null;
 
-    status: 'draft' | 'pending' | 'scheduled' | 'publishing' | 'published' | 'failed' | 'partial';
+    status:
+      | 'draft'
+      | 'media_processing'
+      | 'pending'
+      | 'scheduled'
+      | 'publishing'
+      | 'published'
+      | 'failed'
+      | 'partial';
 
     timezone: string;
 
@@ -222,7 +246,15 @@ export namespace PostRetrieveResponse {
 
       publishedAt: string | null;
 
-      status: 'draft' | 'pending' | 'scheduled' | 'publishing' | 'published' | 'failed' | 'partial';
+      status:
+        | 'draft'
+        | 'media_processing'
+        | 'pending'
+        | 'scheduled'
+        | 'publishing'
+        | 'published'
+        | 'failed'
+        | 'partial';
 
       warningMessage: string | null;
     }
@@ -264,7 +296,15 @@ export namespace PostListResponse {
      */
     scheduledFor: string | null;
 
-    status: 'draft' | 'pending' | 'scheduled' | 'publishing' | 'published' | 'failed' | 'partial';
+    status:
+      | 'draft'
+      | 'media_processing'
+      | 'pending'
+      | 'scheduled'
+      | 'publishing'
+      | 'published'
+      | 'failed'
+      | 'partial';
 
     timezone: string;
 
@@ -314,7 +354,15 @@ export namespace PostListResponse {
 
       publishedAt: string | null;
 
-      status: 'draft' | 'pending' | 'scheduled' | 'publishing' | 'published' | 'failed' | 'partial';
+      status:
+        | 'draft'
+        | 'media_processing'
+        | 'pending'
+        | 'scheduled'
+        | 'publishing'
+        | 'published'
+        | 'failed'
+        | 'partial';
 
       warningMessage: string | null;
     }
@@ -1091,7 +1139,15 @@ export interface PostListParams {
 
   sort?: 'asc' | 'desc';
 
-  status?: 'draft' | 'pending' | 'scheduled' | 'publishing' | 'published' | 'failed' | 'partial';
+  status?:
+    | 'draft'
+    | 'media_processing'
+    | 'pending'
+    | 'scheduled'
+    | 'publishing'
+    | 'published'
+    | 'failed'
+    | 'partial';
 }
 
 export interface PostDeleteParams {
