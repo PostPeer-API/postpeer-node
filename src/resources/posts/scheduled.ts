@@ -113,15 +113,7 @@ export namespace ScheduledListResponse {
         | 'threads'
         | 'googlebusiness';
 
-      status:
-        | 'draft'
-        | 'media_processing'
-        | 'pending'
-        | 'scheduled'
-        | 'publishing'
-        | 'published'
-        | 'failed'
-        | 'partial';
+      status: 'draft' | 'pending' | 'scheduled' | 'publishing' | 'published' | 'failed' | 'partial';
     }
 
     export interface MediaItem {
