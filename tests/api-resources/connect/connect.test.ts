@@ -28,6 +28,7 @@ describe('resource connect', () => {
         'twitter',
         {
           appId: 'appId',
+          cancelRedirectUri: 'https://example.com',
           headless: true,
           profileId: 'profileId',
           redirectUri: 'https://example.com',

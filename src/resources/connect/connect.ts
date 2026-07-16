@@ -54,6 +54,12 @@ export interface ConnectGetOAuthURLParams {
   appId?: string;
 
   /**
+   * URL to redirect to when the user cancels or denies the OAuth prompt. Falls back
+   * to redirectUri when omitted.
+   */
+  cancelRedirectUri?: string;
+
+  /**
    * When true, platforms that require account selection redirect back to redirectUri
    * with a short-lived selectionToken so you can build your own selection UI. When
    * false, PostPeer hosts the selection UI.
