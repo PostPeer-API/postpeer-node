@@ -1,5 +1,34 @@
 # Changelog
 
+## 0.8.0 (2026-07-18)
+
+Full Changelog: [v0.7.0...v0.8.0](https://github.com/PostPeer-API/postpeer-node/compare/v0.7.0...v0.8.0)
+
+### Features
+
+* **api:** api update ([acd985a](https://github.com/PostPeer-API/postpeer-node/commit/acd985acd48e3c7cb5caad0d295466c6b0ab1594))
+* **api:** api update ([ed03ae6](https://github.com/PostPeer-API/postpeer-node/commit/ed03ae6a305ba3b0d9281e82090bcba5233ed0ae))
+* **api:** api update ([89a4ade](https://github.com/PostPeer-API/postpeer-node/commit/89a4ade8d1e9334b6e6097a0b300779c1cf6642f))
+* **api:** api update ([8fc8489](https://github.com/PostPeer-API/postpeer-node/commit/8fc84894d223fae04009b02ae6f33c83004ab28f))
+* **api:** api update ([4856d0f](https://github.com/PostPeer-API/postpeer-node/commit/4856d0f3ebd105947a0e5cad8d3159dd82a221fa))
+* **api:** api update ([07ab595](https://github.com/PostPeer-API/postpeer-node/commit/07ab5955f812442d840edb14ed30a9556b496e08))
+* **api:** api update ([2e5c948](https://github.com/PostPeer-API/postpeer-node/commit/2e5c948c678e7513781d1f6817218c2aeb8ee8e5))
+* **api:** api update ([15698b1](https://github.com/PostPeer-API/postpeer-node/commit/15698b16dbba5f096ef769aaa4fb58d73ec8c055))
+* **api:** api update ([2b88751](https://github.com/PostPeer-API/postpeer-node/commit/2b88751985d1ff3226e7c11ed4e39e31dcd8e1fe))
+* **api:** api update ([85f7a99](https://github.com/PostPeer-API/postpeer-node/commit/85f7a99c680e680e5be36889d6d79e0ad65bbbe0))
+* **api:** api update ([51ad9a9](https://github.com/PostPeer-API/postpeer-node/commit/51ad9a98ce6c5deee983e07dcbb343a881214b25))
+* **api:** api update ([b87e0ea](https://github.com/PostPeer-API/postpeer-node/commit/b87e0ea4c09f7d5203c93a57ba32f236265e41f2))
+* **api:** api update ([7c31ded](https://github.com/PostPeer-API/postpeer-node/commit/7c31ded70d0cade354b10601e084f99a38d361fc))
+* **api:** api update ([9022300](https://github.com/PostPeer-API/postpeer-node/commit/90223000b6f82d53ecec0d31aca81d29ee1a5705))
+* **api:** api update ([fe9ab2f](https://github.com/PostPeer-API/postpeer-node/commit/fe9ab2fd6dfc761808f2adff4971116f03c1c463))
+* **stlc:** configurable CI runner and private-production-repo support in workflow templates ([3210abe](https://github.com/PostPeer-API/postpeer-node/commit/3210abe6bfbd0b4071624ff640c2b7d967700e7b))
+
+
+### Bug Fixes
+
+* **ci:** bump @arethetypeswrong/cli to ^0.18.0 and run CI workflows on Node 24 ([951feb6](https://github.com/PostPeer-API/postpeer-node/commit/951feb6f30181da0c6a4561e9114f2a3dacb29f1))
+* **client:** send content-type header for requests with an omitted optional body ([94df2f2](https://github.com/PostPeer-API/postpeer-node/commit/94df2f2ca4b00f650edfb486ddeb2e5304a461cd))
+
 ## 0.7.0 (2026-05-19)
 
 Full Changelog: [v0.6.0...v0.7.0](https://github.com/PostPeer-API/postpeer-node/compare/v0.6.0...v0.7.0)

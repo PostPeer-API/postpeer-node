@@ -1,6 +1,6 @@
 {
   "name": "@postpeer/node",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "The official TypeScript library for the Postpeer API",
   "author": "Postpeer <>",
   "types": "dist/index.d.ts",
