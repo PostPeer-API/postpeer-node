@@ -36,7 +36,7 @@ class HeyApiRegistry<T> {
     get(key?: string): T {
         const instance = this.instances.get(key ?? this.defaultKey);
         if (!instance) {
-            throw new Error(`No SDK client found. Create one with "new PostPeerApi()" to fix this error.`);
+            throw new Error(`No SDK client found. Create one with "new PostPeer()" to fix this error.`);
         }
         return instance;
     }
@@ -601,15 +601,15 @@ export class Ai extends HeyApiClient {
     }
 }
 
-export class PostPeerApi extends HeyApiClient {
-    public static readonly __registry: HeyApiRegistry<PostPeerApi> = new HeyApiRegistry<PostPeerApi>();
+export class PostPeer extends HeyApiClient {
+    public static readonly __registry: HeyApiRegistry<PostPeer> = new HeyApiRegistry<PostPeer>();
     
     constructor(args?: {
         client?: Client;
         key?: string;
     }) {
         super(args);
-        PostPeerApi.__registry.set(this, args?.key);
+        PostPeer.__registry.set(this, args?.key);
     }
     
     private _health?: Health;

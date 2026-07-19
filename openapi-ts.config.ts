@@ -56,7 +56,7 @@ export default defineConfig({
       auth: true,
       paramsStructure: 'grouped',
       operations: {
-        containerName: 'PostPeerApi',
+        containerName: 'PostPeer',
         nesting(operation) {
           return operationPaths[operation.operationId ?? ''] ?? [operation.operationId ?? 'request'];
         },

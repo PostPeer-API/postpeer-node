@@ -15,9 +15,9 @@ Node.js 20 or newer is required.
 ```ts
 import PostPeer from '@postpeer/node';
 
-const postPeer = new PostPeer(); // Uses POSTPEER_API_KEY
+const client = new PostPeer(); // Uses POSTPEER_API_KEY
 
-const { data: post } = await postPeer.posts.create({
+const { data: post } = await client.posts.create({
   body: {
     content: 'Hello from PostPeer!',
     platforms: [{ platform: 'twitter', accountId: 'integration-id' }],
@@ -31,7 +31,7 @@ console.log(post);
 You can also pass the key directly:
 
 ```ts
-const postPeer = new PostPeer({
+const client = new PostPeer({
   apiKey: 'your-access-key',
 });
 ```
@@ -39,7 +39,7 @@ const postPeer = new PostPeer({
 ## Configuration
 
 ```ts
-const postPeer = new PostPeer({
+const client = new PostPeer({
   apiKey: 'your-access-key',
   baseURL: 'https://api.postpeer.dev',
   timeout: 60_000,
@@ -56,32 +56,32 @@ Every `PostPeer` instance owns an isolated HTTP client, so separate API keys and
 The SDK follows the API's resource structure:
 
 ```ts
-postPeer.health.check();
-postPeer.health.verifyAccessKey();
+client.health.check();
+client.health.verifyAccessKey();
 
-postPeer.posts.create({ body });
-postPeer.posts.list({ query });
-postPeer.posts.get({ path: { postId } });
-postPeer.posts.delete({ path: { postId } });
-postPeer.posts.scheduled.list();
-postPeer.posts.scheduled.cancel({ path: { postId } });
-postPeer.posts.scheduled.reschedule({ path: { postId }, body });
+client.posts.create({ body });
+client.posts.list({ query });
+client.posts.get({ path: { postId } });
+client.posts.delete({ path: { postId } });
+client.posts.scheduled.list();
+client.posts.scheduled.cancel({ path: { postId } });
+client.posts.scheduled.reschedule({ path: { postId }, body });
 
-postPeer.connect.getOAuthUrl({ path: { platform }, query });
-postPeer.connect.integrations.list();
-postPeer.connect.integrations.disconnect({ path: { id } });
+client.connect.getOAuthUrl({ path: { platform }, query });
+client.connect.integrations.list();
+client.connect.integrations.disconnect({ path: { id } });
 
-postPeer.profiles.list();
-postPeer.apps.list();
-postPeer.notifications.list();
-postPeer.platforms.list();
-postPeer.media.upload({ body });
-postPeer.analytics.get({ query });
-postPeer.usage.get();
-postPeer.pinterest.getBoards({ query });
-postPeer.tiktok.getCreatorInfo({ query });
-postPeer.ai.write({ body });
-postPeer.ai.generateImage({ body });
+client.profiles.list();
+client.apps.list();
+client.notifications.list();
+client.platforms.list();
+client.media.upload({ body });
+client.analytics.get({ query });
+client.usage.get();
+client.pinterest.getBoards({ query });
+client.tiktok.getCreatorInfo({ query });
+client.ai.write({ body });
+client.ai.generateImage({ body });
 ```
 
 Request parameters are grouped under `body`, `path`, `query`, and `headers`. Responses include `data`, `request`, and `response`, giving you access to the parsed result and the native Fetch objects.
@@ -91,8 +91,10 @@ Request parameters are grouped under `body`, `path`, `query`, and `headers`. Res
 ```ts
 import PostPeer, { NotFoundError, RateLimitError } from '@postpeer/node';
 
+const client = new PostPeer();
+
 try {
-  await postPeer.posts.get({ path: { postId: 'missing' } });
+  await client.posts.get({ path: { postId: 'missing' } });
 } catch (error) {
   if (error instanceof NotFoundError) {
     console.error(error.status, error.requestId, error.message);
@@ -114,7 +116,9 @@ pnpm generate
 pnpm check
 ```
 
-Commit `openapi.json` and `src/generated` together. This updates the code but does not publish a package. Package versions change only when a release PR is deliberately merged.
+Commit `openapi.json` and `src/generated` together. This updates the code but does not publish a package.
+
+For a release, update `package.json`, `src/version.ts`, and `CHANGELOG.md`, run `pnpm check`, then publish with `npm publish --access public`.
 
 Generated files under `src/generated` must not be edited by hand.
 

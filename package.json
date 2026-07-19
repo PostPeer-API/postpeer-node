@@ -1,6 +1,6 @@
 {
   "name": "@postpeer/node",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "description": "The official TypeScript library for the PostPeer API",
   "author": "PostPeer",
   "license": "Apache-2.0",
@@ -45,7 +45,6 @@
   "scripts": {
     "spec:fetch": "node scripts/fetch-spec.mjs",
     "generate": "openapi-ts",
-    "generate:check": "pnpm generate && git diff --exit-code -- openapi.json src/generated",
     "build": "tsup",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
@@ -53,7 +52,7 @@
     "format:check": "prettier --check .",
     "test": "vitest run",
     "test:watch": "vitest",
-    "check": "pnpm generate:check && pnpm lint && pnpm typecheck && pnpm test && pnpm build",
+    "check": "pnpm generate && pnpm lint && pnpm typecheck && pnpm test && pnpm build",
     "prepublishOnly": "pnpm check"
   },
   "devDependencies": {

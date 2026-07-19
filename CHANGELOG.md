@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.8.1
+
+- Standardized the public SDK class name as `PostPeer` throughout generated code and documentation.
+
 ## 0.8.0
 
 - Rebuilt the SDK with Hey API from the PostPeer OpenAPI specification.

@@ -1,5 +1,5 @@
 import { createClient, type Client } from './generated/client';
-import { PostPeerApi } from './generated/sdk.gen';
+import { PostPeer as GeneratedPostPeer } from './generated/sdk.gen';
 import {
   APIConnectionError,
   APIConnectionTimeoutError,
@@ -87,7 +87,7 @@ const createPostPeerFetch = ({
 };
 
 /** The official Node.js client for the PostPeer API. */
-export class PostPeer extends PostPeerApi {
+export class PostPeer extends GeneratedPostPeer {
   static readonly DEFAULT_TIMEOUT = DEFAULT_TIMEOUT;
   static readonly DEFAULT_MAX_RETRIES = DEFAULT_MAX_RETRIES;
 
