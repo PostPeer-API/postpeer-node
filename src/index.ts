@@ -1,22 +1,18 @@
-// File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
-
-export { Postpeer as default } from './client';
-
-export { type Uploadable, toFile } from './core/uploads';
-export { APIPromise } from './core/api-promise';
-export { Postpeer, type ClientOptions } from './client';
+export { PostPeer, PostPeer as default, type ClientOptions } from './client';
 export {
-  PostpeerError,
-  APIError,
   APIConnectionError,
   APIConnectionTimeoutError,
+  APIError,
   APIUserAbortError,
-  NotFoundError,
-  ConflictError,
-  RateLimitError,
-  BadRequestError,
   AuthenticationError,
+  BadRequestError,
+  ConflictError,
   InternalServerError,
+  NotFoundError,
   PermissionDeniedError,
+  PostPeerError,
+  RateLimitError,
   UnprocessableEntityError,
-} from './core/error';
+} from './errors';
+export type * from './generated/types.gen';
+export { VERSION } from './version';

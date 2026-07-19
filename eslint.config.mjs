@@ -1,39 +1,15 @@
 // @ts-check
 import tseslint from 'typescript-eslint';
-import unusedImports from 'eslint-plugin-unused-imports';
 
 export default tseslint.config(
   {
-    languageOptions: {
-      parser: tseslint.parser,
-      parserOptions: { sourceType: 'module' },
-    },
-    files: ['**/*.ts', '**/*.mts', '**/*.cts', '**/*.js', '**/*.mjs', '**/*.cjs'],
-    ignores: ['dist/'],
-    plugins: {
-      '@typescript-eslint': tseslint.plugin,
-      'unused-imports': unusedImports,
-    },
-    rules: {
-      'no-unused-vars': 'off',
-      'unused-imports/no-unused-imports': 'error',
-      'no-restricted-imports': [
-        'error',
-        {
-          patterns: [
-            {
-              regex: '^@postpeer/node(/.*)?',
-              message: 'Use a relative import, not a package import.',
-            },
-          ],
-        },
-      ],
-    },
+    ignores: ['dist/', 'src/generated/'],
   },
+  ...tseslint.configs.recommended,
   {
-    files: ['tests/**', 'examples/**', 'packages/**'],
+    files: ['**/*.ts', '**/*.mts', '**/*.cts'],
     rules: {
-      'no-restricted-imports': 'off',
+      '@typescript-eslint/no-explicit-any': 'off',
     },
   },
 );
